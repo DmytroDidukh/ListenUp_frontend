@@ -1,0 +1,50 @@
+.authorization {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__top {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 0;
+    }
+    p {
+      opacity: .8;
+      letter-spacing: 0.05rem;
+    }
+  }
+
+  &__form {
+    width: 430px;
+    text-align: center;
+  }
+
+  &__registration {
+    color: #202020;
+    opacity: .7;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+}
+
+.success-block {
+  text-align: center;
+}
+
+
+
+
+
+
