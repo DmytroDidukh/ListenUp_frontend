@@ -1,5 +1,5 @@
 import React from 'react';
-import {Message} from 'src/components';
+import {Message} from 'components';
 
 const Home = () => {
 const user = {

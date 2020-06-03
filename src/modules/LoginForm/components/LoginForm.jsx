@@ -3,7 +3,7 @@ import {Form, Input} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-import {Button, Block} from 'src/components'
+import {Button, Block} from 'components'
 
 
 const LoginForm = () => {
