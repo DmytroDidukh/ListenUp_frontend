@@ -3,7 +3,7 @@ import {Form, Input} from 'antd';
 import {UserOutlined, LockOutlined, MailOutlined, InfoCircleOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-import {Button, Block} from '../../../components'
+import {Button, Block} from 'src/components'
 
 
 const RegistrationForm = () => {
@@ -11,11 +11,11 @@ const RegistrationForm = () => {
 
     return (
         <div>
-            <div className={'authorization__top'}>
+            <div className={'auth__top'}>
                 <h2>Registration</h2>
                 <p>To start chatting you need to register first</p>
             </div>
-            <Block className={'authorization__form'}>
+            <Block className={'auth__form'}>
                 {!success ? (
                     <Form
                         name="normal_login"
@@ -89,10 +89,10 @@ const RegistrationForm = () => {
                                 Register
                             </Button>
                         </Form.Item>
-                        <Link to={'login'} className="authorization__registration">log in</Link>
+                        <Link to={'login'} className="auth__registration">log in</Link>
                     </Form>
                 ) : (
-                    <div className={'authorization__top success-block'}>
+                    <div className={'auth__top success-block'}>
                         <InfoCircleOutlined style={{fontSize: '40px', color: '#096dd9'}}/>
                         <h3>Confirm your email address</h3>
                         <p>A message has been sent to your mail. Follow the link in the description of the message.</p>

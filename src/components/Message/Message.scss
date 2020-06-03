@@ -1,0 +1,25 @@
+//@import '~styles/_variables';
+
+.message {
+  display: flex;
+  align-items: flex-end;
+
+  &__avatar {
+
+    img {
+      border-radius: 50px;
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  &__bubble {
+    background: #3674ff;
+    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.19);
+    border-radius: 12px 12px 12px 0;
+  }
+
+  &__text {
+    color: white;
+  }
+}

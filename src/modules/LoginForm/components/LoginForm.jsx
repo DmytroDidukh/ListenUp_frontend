@@ -3,17 +3,17 @@ import {Form, Input} from 'antd';
 import {UserOutlined, LockOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-import {Button, Block} from '../../../components'
+import {Button, Block} from 'src/components'
 
 
 const LoginForm = () => {
     return (
         <div>
-            <div className={'authorization__top'}>
+            <div className={'auth__top'}>
                 <h2>Welcome!</h2>
                 <p>Log in or get registration</p>
             </div>
-            <Block className={'authorization__form'}>
+            <Block className={'auth__form'}>
                 <Form
                     name="normal_login"
                     className="login-form"
@@ -57,7 +57,7 @@ const LoginForm = () => {
                             Log in
                         </Button>
                     </Form.Item>
-                    <Link to={'registration'} className="authorization__registration">registration</Link>
+                    <Link to={'registration'} className="auth__registration">registration</Link>
                 </Form>
             </Block>
         </div>
