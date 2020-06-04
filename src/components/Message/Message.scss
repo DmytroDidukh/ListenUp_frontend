@@ -9,13 +9,15 @@
 
   &__content {
     display: flex;
+    /* align-items: flex-end; */
+    flex-direction: column;
   }
 
   &__avatar {
     display: flex;
     align-items: flex-end;
     margin-bottom: 23px;
-    margin-right: 10px;
+    margin-right: $message-content-side-m;
 
     img {
       border-radius: 50px;
@@ -26,8 +28,9 @@
 
   &__bubble {
     background: $blue;
-    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.19);
+    box-shadow: 0 5px 5px rgba(54, 116, 255, 0.2);
     border-radius: 12px 12px 12px 0;
+    border: 1px solid darken($blue, 5%);
     padding: 15px;
     margin-bottom: 8px;
   }
@@ -35,6 +38,15 @@
   &__text {
     color: white;
     line-height: 20px;
+  }
+
+  &__attachments {
+    &-item {
+      width: 40px;
+      border-radius: 5px;
+      margin: 0 2px 10px;
+      cursor: pointer;
+    }
   }
 
   &__date {
@@ -47,30 +59,41 @@
     flex-direction: row-reverse;
 
     #{$self}__content {
-      margin-bottom: 15px;
-      flex-direction: row-reverse;
+      align-items: flex-end;
     }
 
     #{$self}__avatar {
-      img {
-        margin-right: 0;
-        margin-left: 13px;
-      }
+      margin-right: 0;
+      margin-left: $message-content-side-m;
     }
 
     #{$self}__bubble {
-      background: #fff;
-      border: 1px solid #ececec;
-      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.02);
+      background: $light-silver;
+      border: 1px solid $dark-silver;
+      box-shadow: 0 5px 5px rgba(154, 154, 154, 0.2);
       border-radius: 12px 12px 0 12px;
 
       #{$self}__text {
         color: $black;
       }
     }
+
     #{$self}__info {
-      align-items: center;
-      text-align: right;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: flex-end;
+    }
+
+    #{$self}__svg-wrapper {
+      /*width: 30px;*/
+      margin-right: $message-content-side-m;
+      margin-bottom: 10px;
+
+      #{$self}__checked-svg.read {
+        g {
+          fill: darken($blue, 10%);
+        }
+      }
     }
 
   }

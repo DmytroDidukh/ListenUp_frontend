@@ -30,4 +30,4 @@ yarn-error.log*
 *.css
 *.css.map
 
-.idea/workspace.xml
+package-lock.json

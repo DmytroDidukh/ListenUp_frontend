@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
   monospace;
 }
+
+.ant-form-item-explain {
+  min-height: 10px;
+  color: #ff4d4f;
+
+  > div {
+    padding: 5px;
+  }
+}

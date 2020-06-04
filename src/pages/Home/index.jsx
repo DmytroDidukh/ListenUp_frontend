@@ -4,22 +4,30 @@ import React from 'react';
 import {Message} from 'components';
 
 const Home = () => {
-    const date = new Date(2020, 5, 2)
+    const date = new Date()
     const user = {
         avatar: 'https://lh3.googleusercontent.com/proxy/PJFLyRN85dh3IRn5_JIsi41VLQV9ymoQzDc9exfGCpQVplDL5Gaqergf3PkmrMZB2jUER2YD5SqwvUnKnsZYQZW4-SpWd84tprj2l1L59EDz',
         fullName: 'Donald Trump',
-        text: 'Wow this is amazing.  I never thought I could earn real money with binary options trading.  I thought everyone on the platform was just scammers who don\'t have human feelings.  They scammed me many times.  Before I get her, be careful when investing.  I know there are real managers, Mr Charles wesley him  real and legitimate manager who will do anything to get your earnings after the exchange.  Him has done it for me now, I don\'t have to worry about her trading, him will put  smile on your face again if you need help, You can connect Him on telegram...'
+        text: 'Wow this is amazing'
     }
     const user2 = {
         avatar: ' https://ruinformer.com/uploads/_pages/5193/putin.jpg',
         fullName: 'Vladimir Putin',
-        text: 'You can connect Him on telegram...'
+        text: 'You can connect Him on telegram... Wow this is amazing.  I never thought I could earn real money with binary options trading.'
     }
+
+    const attachments = [
+        {id: 'image.jpg', src: 'https://images.unsplash.com/photo-1586567078458-b5e499305b97?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'},
+        {id: 'image.jpg', src: 'https://images.unsplash.com/photo-1590622079638-495071106ecd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'},
+        {id: 'image.jpg', src: 'https://images.unsplash.com/photo-1581703577202-b81fbfddb67b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'},
+    ]
 
     return (
         <div>
-            <Message user={user} date={date} isMe/>
-            <Message user={user2} date={date}/>
+            <Message user={user2} date={date}
+            attachments={attachments}
+            />
+            <Message user={user} date={date} isMe isRead={true} attachments={attachments}/>
         </div>
     )
 };

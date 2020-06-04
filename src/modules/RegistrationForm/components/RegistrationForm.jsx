@@ -6,8 +6,31 @@ import {Link} from "react-router-dom";
 import {Button, Block} from 'components'
 
 
-const RegistrationForm = () => {
-    const [success, setSuccess] = useState(false);
+const RegistrationForm = (props) => {
+    const [validated, setValidated] = useState(false);
+
+    const onSubmitErrorMessage = 'Some fields are empty or wrong';
+    const [email, username, password, confirmPass, error, success] = ['email', 'username', 'password', 'confirmPass', 'error', 'success']
+
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isValid,
+        isSubmitting,
+        isValidating
+    } = props;
+
+    const onValidateStatus = (value) => (
+        !touched[value] ? '' : errors[value] ? error : success
+    );
+
+    const onValidateHelp = (value) => (
+        !touched[value] ? '' : errors[value]
+    );
 
     return (
         <div>
@@ -16,75 +39,72 @@ const RegistrationForm = () => {
                 <p>To start chatting you need to register first</p>
             </div>
             <Block className={'auth__form'}>
-                {!success ? (
-                    <Form
-                        name="normal_login"
-                        className="login-form"
-                        initialValues={{
-                            remember: true,
-                        }}>
-                        <Form.Item
-                            validateStatus={'success'}
-                            /*hasFeedback*/
-                            name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Email!',
-                                },
-                            ]}>
-                            <Input prefix={<MailOutlined className="site-form-item-icon"/>}
+                {!validated ? (
+                    <Form onSubmit={handleSubmit} className="login-form">
+                        <Form.Item validateStatus={onValidateStatus(email)}
+                                   help={onValidateHelp(email)}
+                                   hasFeedback
+                        >
+                            <Input id={email}
+                                   prefix={<MailOutlined className="site-form-item-icon"/>}
                                    placeholder="Email"
-                                   size={'large'}/>
+                                   size={'large'}
+                                   value={values.email}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
                         </Form.Item>
 
-                        <Form.Item
-                            validateStatus={'success'}
-                            /*hasFeedback*/
-                            name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Username!',
-                                },
-                            ]}>
-                            <Input prefix={<UserOutlined className="site-form-item-icon"/>}
+
+                        <Form.Item validateStatus={onValidateStatus(username)}
+                                   help={onValidateHelp(username)}
+                                   hasFeedback
+                        >
+                            <Input id={username}
+                                   prefix={<UserOutlined className="site-form-item-icon"/>}
                                    placeholder="Username"
-                                   size={'large'}/>
+                                   value={values.username}
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
+                        </Form.Item>
+
+
+                        <Form.Item validateStatus={onValidateStatus(password)}
+                                   help={onValidateHelp(password)}
+                                   hasFeedback
+                        >
+                            <Input id={password}
+                                   prefix={<LockOutlined className="site-form-item-icon"/>}
+                                   type="password"
+                                   placeholder="Password"
+                                   value={values.password}
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
+                        </Form.Item>
+
+                        <Form.Item validateStatus={onValidateStatus(confirmPass)}
+                                   help={onValidateHelp(confirmPass)}
+                                   hasFeedback
+                        >
+                            <Input id={confirmPass}
+                                   prefix={<LockOutlined className="site-form-item-icon"/>}
+                                   type="password"
+                                   value={values.confirmPass}
+                                   placeholder="Repeat password"
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
                         </Form.Item>
 
                         <Form.Item
-                            name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Password!',
-                                },
-                            ]}>
-                            <Input
-                                prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password"
-                                placeholder="Password"
-                                size={'large'}/>
-                        </Form.Item>
-
-                        <Form.Item
-                            name="repeatPass"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please repeat your password!',
-                                },
-                            ]}>
-                            <Input
-                                prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password"
-                                placeholder="Repeat password"
-                                size={'large'}/>
-                        </Form.Item>
-
-                        <Form.Item>
-                            <Button onClick={() => setSuccess(true)} type="primary" htmlType="submit"
+                        help={!isSubmitting ? '' : onSubmitErrorMessage}
+                        >
+                            <Button onClick={handleSubmit} type="primary" htmlType="submit"
                                     className="login-form-button" size={'large'}>
                                 Register
                             </Button>
