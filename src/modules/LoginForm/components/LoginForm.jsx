@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 import {Button, Block} from 'components'
 
 
-const LoginForm = () => {
+const LoginForm = ({isSubmitting, isValid, handleSubmit}) => {
     return (
         <div>
             <div className={'auth__top'}>
@@ -14,36 +14,15 @@ const LoginForm = () => {
                 <p>Log in or get registration</p>
             </div>
             <Block className={'auth__form'}>
-                <Form
-                    name="normal_login"
-                    className="login-form"
-                    initialValues={{
-                        remember: true,
-                    }}>
+                <Form className="login-form">
 
-                    <Form.Item
-                        validateStatus={'success'}
-                        hasFeedback
-                        name="email"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Email!',
-                            },
-                        ]}>
+                    <Form.Item name="email">
                         <Input prefix={<UserOutlined className="site-form-item-icon"/>}
                                placeholder="Email"
                                size={'large'}/>
                     </Form.Item>
 
-                    <Form.Item
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your Password!',
-                            },
-                        ]}>
+                    <Form.Item name="password">
                         <Input
                             prefix={<LockOutlined className="site-form-item-icon"/>}
                             type="password"
@@ -51,8 +30,9 @@ const LoginForm = () => {
                             size={'large'}/>
                     </Form.Item>
 
-                    <Form.Item>
+                    <Form.Item help={isSubmitting && isValid && 'Email or password is incorrect' }>
                         <Button type="primary" htmlType="submit"
+                                onClick={handleSubmit}
                                 className="login-form-button" size={'large'}>
                             Log in
                         </Button>

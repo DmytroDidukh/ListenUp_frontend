@@ -6,7 +6,7 @@ import {Message} from 'components';
 const Home = () => {
     const date = new Date()
     const user = {
-        avatar: 'https://lh3.googleusercontent.com/proxy/PJFLyRN85dh3IRn5_JIsi41VLQV9ymoQzDc9exfGCpQVplDL5Gaqergf3PkmrMZB2jUER2YD5SqwvUnKnsZYQZW4-SpWd84tprj2l1L59EDz',
+        avatar: 'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg',
         fullName: 'Donald Trump',
         text: 'Wow this is amazing'
     }

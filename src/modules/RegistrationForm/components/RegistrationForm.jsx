@@ -3,7 +3,8 @@ import {Form, Input} from 'antd';
 import {UserOutlined, LockOutlined, MailOutlined, InfoCircleOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-import {Button, Block} from 'components'
+import {Button, Block} from 'components';
+import {onValidateField} from 'utils/helpers';
 
 
 const RegistrationForm = (props) => {
@@ -19,14 +20,9 @@ const RegistrationForm = (props) => {
         handleChange,
         handleBlur,
         handleSubmit,
-        isValid,
         isSubmitting,
-        isValidating
+        isValid
     } = props;
-
-    const onValidateStatus = (value) => (
-        !touched[value] ? '' : errors[value] ? error : success
-    );
 
     const onValidateHelp = (value) => (
         !touched[value] ? '' : errors[value]
@@ -41,9 +37,8 @@ const RegistrationForm = (props) => {
             <Block className={'auth__form'}>
                 {!validated ? (
                     <Form onSubmit={handleSubmit} className="login-form">
-                        <Form.Item validateStatus={onValidateStatus(email)}
+                        <Form.Item validateStatus={onValidateField(email, errors, touched)}
                                    help={onValidateHelp(email)}
-                                   hasFeedback
                         >
                             <Input id={email}
                                    prefix={<MailOutlined className="site-form-item-icon"/>}
@@ -56,9 +51,8 @@ const RegistrationForm = (props) => {
                         </Form.Item>
 
 
-                        <Form.Item validateStatus={onValidateStatus(username)}
+                        <Form.Item validateStatus={onValidateField(username, errors, touched)}
                                    help={onValidateHelp(username)}
-                                   hasFeedback
                         >
                             <Input id={username}
                                    prefix={<UserOutlined className="site-form-item-icon"/>}
@@ -71,11 +65,10 @@ const RegistrationForm = (props) => {
                         </Form.Item>
 
 
-                        <Form.Item validateStatus={onValidateStatus(password)}
+                        <Form.Item validateStatus={onValidateField(password, errors, touched)}
                                    help={onValidateHelp(password)}
-                                   hasFeedback
                         >
-                            <Input id={password}
+                            <Input.Password id={password}
                                    prefix={<LockOutlined className="site-form-item-icon"/>}
                                    type="password"
                                    placeholder="Password"
@@ -83,14 +76,15 @@ const RegistrationForm = (props) => {
                                    size={'large'}
                                    onChange={handleChange}
                                    onBlur={handleBlur}
+
                             />
+
                         </Form.Item>
 
-                        <Form.Item validateStatus={onValidateStatus(confirmPass)}
+                        <Form.Item validateStatus={onValidateField(confirmPass, errors, touched)}
                                    help={onValidateHelp(confirmPass)}
-                                   hasFeedback
                         >
-                            <Input id={confirmPass}
+                            <Input.Password id={confirmPass}
                                    prefix={<LockOutlined className="site-form-item-icon"/>}
                                    type="password"
                                    value={values.confirmPass}
@@ -101,9 +95,7 @@ const RegistrationForm = (props) => {
                             />
                         </Form.Item>
 
-                        <Form.Item
-                        help={!isSubmitting ? '' : onSubmitErrorMessage}
-                        >
+                        <Form.Item help={isSubmitting && isValid && onSubmitErrorMessage}>
                             <Button onClick={handleSubmit} type="primary" htmlType="submit"
                                     className="login-form-button" size={'large'}>
                                 Register

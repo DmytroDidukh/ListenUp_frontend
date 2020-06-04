@@ -27,10 +27,10 @@
   }
 
   &__bubble {
-    background: $blue;
+    background: $orange;
     box-shadow: 0 5px 5px rgba(54, 116, 255, 0.2);
     border-radius: 12px 12px 12px 0;
-    border: 1px solid darken($blue, 5%);
+    border: 1px solid darken($orange, 5%);
     padding: 15px;
     margin-bottom: 8px;
   }
@@ -69,7 +69,7 @@
 
     #{$self}__bubble {
       background: $light-silver;
-      border: 1px solid $dark-silver;
+      border: 1px solid darken($light-silver, 5%);
       box-shadow: 0 5px 5px rgba(154, 154, 154, 0.2);
       border-radius: 12px 12px 0 12px;
 
@@ -91,11 +91,10 @@
 
       #{$self}__checked-svg.read {
         g {
-          fill: darken($blue, 10%);
+          fill: darken($orange, 10%);
         }
       }
     }
-
   }
 }
 

@@ -9,7 +9,7 @@ const App = () => {
     <div className="wrapper">
         <Link to={'home'}>home</Link>
         <Route exact path={['/', '/login', '/registration']} component={Auth}/>
-        <Route path={'/home'} component={Home}/>
+        <Route exact path={'/home'} component={Home}/>
     </div>
   );
 };
