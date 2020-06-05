@@ -1,7 +1,7 @@
 import React from 'react';
 
+import {Message, Dialogs} from 'components';
 
-import {Message, DialogItem} from 'components';
 
 const Home = () => {
 
@@ -20,37 +20,40 @@ const Home = () => {
         },
     ]
 
-    const user = {
-        user: {
-            fullName: 'Bob Dylan',
-            avatar: 'https://www.feeling.com.mx/img/2016/10/Bob-Dylan-150x150.jpg'
+    const users = [
+        {
+            _id: 1,
+            user: {
+                fullName: 'Bob Dylan',
+                avatar: 'https://www.feeling.com.mx/img/2016/10/Bob-Dylan-150x150.jpg'
+            },
+            message: {
+                text: 'Mama, put my guns in the groundI can\'t shoot them anymore',
+                isRead: false,
+                unreadCount: 3,
+                created_at: new Date()
+            }
         },
-        message: {
-            text: 'Mama, put my guns in the groundI can\'t shoot them anymore',
-            isRead: false,
-            unreadCount: 3,
-            created_at: new Date()
+        {
+            _id: 2,
+            user: {
+                fullName: 'Ricky Martin',
+                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTILaH8JOyuwl-OelrddDU6og28UYVOf9Ge-JQTNmAnPLJN8UAY&usqp=CAU',
+                online: true
+            },
+            message: {
+                text: 'Me haces falta, Explícame qué te hizo falta, amor',
+                isRead: true,
+                unreadCount: 2,
+                created_at: new Date(2020, 5, 5, 13, 2)
+            }
         }
-    }
-
-    const user2 = {
-        user: {
-            fullName: 'Ricky Martin',
-            avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTILaH8JOyuwl-OelrddDU6og28UYVOf9Ge-JQTNmAnPLJN8UAY&usqp=CAU',
-            online: true
-        },
-        message: {
-            text: 'Me haces falta, Explícame qué te hizo falta, amor',
-            isRead: true,
-            unreadCount: 0,
-            created_at: new Date(2020, 3, 23)
-        }
-    }
+    ]
 
     return (
         <div>
-            <DialogItem user={user}/>
-            <DialogItem user={user2}/>
+            <Dialogs items={users}/>
+
 
 
              <Message

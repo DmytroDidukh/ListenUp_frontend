@@ -2,7 +2,7 @@ import React from "react";
 import classNames from 'classnames'
 
 
-const CheckedSvgIcon = ({isRead}) => (
+const Index = ({isRead}) => (
     <div className={'svg-wrapper'}>
         <svg className={classNames('checked-svg-icon', {'read': isRead})} version="1.0"
              xmlns="http://www.w3.org/2000/svg"
@@ -23,4 +23,5 @@ const CheckedSvgIcon = ({isRead}) => (
     </div>
 );
 
-export default CheckedSvgIcon;
+
+export default Index;

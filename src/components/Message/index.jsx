@@ -1,10 +1,10 @@
 import React from "react";
 import classNames from 'classnames';
 
-import {Time} from 'components'
+import {Time, CheckedSvgIcon} from 'components'
+
 
 import './Message.scss';
-import CheckedSvgIcon from "../checkedSvgIcon";
 
 const Message = ({avatar, text, /*date = new Date(),*/ fullName, isMe, isRead, isTyping, attachments = []}) => {
     const isMessageImage = attachments.length === 1;
@@ -43,10 +43,10 @@ const Message = ({avatar, text, /*date = new Date(),*/ fullName, isMe, isRead, i
                     {isMe && !isTyping && <CheckedSvgIcon isRead={isRead}/>}
                 </div>
                 {!!attachments.length && <div className='message__attachments'>
-                    {attachments.map(item => <img className={'message__attachments-item'} src={item.src}
+                    {attachments.map((item, i) => <img key={i} className={'message__attachments-item'} src={item.src}
                                                   alt={item.id}/>)}
                 </div>}
-                {!isTyping && <Time className='message__date' date={date}/>}
+                {!isTyping && <Time className='message__date' dateMessage={date}/>}
             </div>
         </div>
     )
