@@ -15,7 +15,7 @@ const Time = ({className, dateMessage}) => {
 
        if (hoursFromNow === 0) {
            return formatDistanceToNow(dateMessage, {addSuffix: true})
-       } else if (hoursFromNow <= 24) {
+       } else if (hoursFromNow <= 23) {
            return format(dateMessage, 'H:mm')
        } else {
            return format(dateMessage, 'dd/MM/yy')

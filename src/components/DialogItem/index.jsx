@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import {Time, CheckedSvgIcon} from "components";
 import './DialogItem.scss'
 
-const DialogItem = ({user, message}) => {
+const DialogItem = ({isMe, user, text, isRead, created_at, unreadCount}) => {
 
 
     return (
@@ -15,15 +15,15 @@ const DialogItem = ({user, message}) => {
             <div className='dialogs__item-info'>
                 <div className='dialogs__item-info-top'>
                     <b className={'dialogs__item__contact-name'}>{user.fullName}</b>
-                    <Time className={''} dateMessage={message.created_at}/>
+                    <Time className={''} dateMessage={created_at}/>
                 </div>
                 <div className='dialogs__item-info-bottom'>
-                    <span className={'dialogs__item__last-message'}>{message.text}</span>
+                    <span className={'dialogs__item__last-message'}>{text}</span>
                     {
-                        message.isRead ? (
-                            <CheckedSvgIcon isRead={true}/>
+                         !isMe ? (
+                            <CheckedSvgIcon isRead={isRead && true}/>
                         ) : (
-                            <span className={'dialogs__item__unread-counter'}>{message.unreadCount}</span>
+                            <span className={'dialogs__item__unread-counter'}>{unreadCount}</span>
                         )
                     }
                 </div>

@@ -20,43 +20,63 @@ const Home = () => {
         },
     ]
 
-    const users = [
+    const messages = [
         {
             _id: 1,
+            text: 'Mama, put my guns in the groundI can\'t shoot them anymore',
+            isRead: false,
+            unreadCount: 3,
+            created_at: new Date(),
             user: {
                 fullName: 'Bob Dylan',
                 avatar: 'https://www.feeling.com.mx/img/2016/10/Bob-Dylan-150x150.jpg'
             },
-            message: {
-                text: 'Mama, put my guns in the groundI can\'t shoot them anymore',
-                isRead: false,
-                unreadCount: 3,
-                created_at: new Date()
-            }
+
         },
         {
             _id: 2,
+            text: 'Me haces falta, Explícame qué te hizo falta, amor',
+            isRead: false,
+            unreadCount: 2,
+            created_at: new Date(2020, 5, 5, 1, 2),
             user: {
                 fullName: 'Ricky Martin',
                 avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTILaH8JOyuwl-OelrddDU6og28UYVOf9Ge-JQTNmAnPLJN8UAY&usqp=CAU',
                 online: true
             },
-            message: {
-                text: 'Me haces falta, Explícame qué te hizo falta, amor',
-                isRead: true,
-                unreadCount: 2,
-                created_at: new Date(2020, 5, 5, 13, 2)
-            }
-        }
+        },
+        {
+            _id: 3,
+            text: 'And it\'s no sacrifice, just a simple word',
+            isRead: false,
+            unreadCount: 2,
+            created_at: new Date(2020, 5, 4, 10, 57),
+            user: {
+                fullName: 'Elton John',
+                avatar: 'https://lh3.googleusercontent.com/proxy/RH8qvUARBhOFGfFgWOnVhdUkC6-uwnQjhKkRh5ZHkywslYkJSuOETALfXR7Se-uAcZ5aXeBz9ZM35ApxhFU7jDraqldqD1wH2MVTJlMZc1IJEceqSgYJuFpJWMxTUUXK',
+                online: true
+            },
+        },
+        {
+            _id: 4,
+            text: 'My curiosity sustains me for the period of the shoot',
+            isRead: true,
+            unreadCount: 0,
+            created_at: new Date(2020, 5, 6, 0, 12),
+            user: {
+                fullName: 'Daniel Del Luis',
+                avatar: 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2MTk1NTU0ODI3/daniel-day-lewis-9268727-2-402.jpg',
+                online: false
+            },
+        },
     ]
 
     return (
         <div>
-            <Dialogs items={users}/>
+            <Dialogs items={messages} ownerId={2}/>
 
 
-
-             <Message
+            <Message
                 avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
                 fullName={'Donald Trump'}
                 text={'You can connect Him on telegram... Wow this is amazing.'}
@@ -70,7 +90,7 @@ const Home = () => {
                 attachments={attachments}
 
             />
-     {/*       <Message
+            {/*       <Message
                 avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
                 fullName={'Vladimir Putin'}
                 isTyping
