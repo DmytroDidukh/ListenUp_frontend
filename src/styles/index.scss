@@ -10,6 +10,17 @@ html, body, #root, .wrapper {
   font-size: 14px;
 }
 
+.date {
+  font-size: 12px;
+  opacity: .5;
+}
+
+.checked-svg-icon.read {
+  g {
+    fill: darken($orange, 10%);
+  }
+}
+
 .ant-form-item-control-input {
   margin-bottom: 30px;
 }
