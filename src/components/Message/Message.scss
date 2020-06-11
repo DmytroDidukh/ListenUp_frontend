@@ -49,6 +49,49 @@
     }
   }
 
+  &__audio {
+    position: relative;
+    padding: 10px 15px;
+
+    audio {
+      display: none;
+    }
+
+    &-progress {
+      left: 0;
+      top: 0;
+      position: absolute;
+      background-color: lighten($orange, 20%);
+      height: 100%;
+      transition: width .3s ease;
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 5;
+    }
+
+    &-btn {
+      button {
+        width: 30px;
+        height: 30px;
+        background-color: $primary;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+      }
+    }
+
+    &-duration {
+      color: white;
+      width: 50px;
+      text-align: right;
+    }
+  }
+
   &--is-me {
     display: flex;
     flex-direction: row-reverse;
@@ -109,6 +152,14 @@
   &--attachments {
     #{$self}__attachments-item {
       width: 40px;
+    }
+  }
+
+  &--audio {
+    #{$self}__bubble {
+      width: 280px;
+      overflow: hidden;
+      padding: 0;
     }
   }
 

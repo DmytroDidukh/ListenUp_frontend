@@ -10,6 +10,10 @@ html, body, #root, .wrapper {
   font-size: 14px;
 }
 
+* {
+  outline: none;
+}
+
 .date {
   font-size: 12px;
   opacity: .5;
@@ -17,7 +21,7 @@ html, body, #root, .wrapper {
 
 .checked-svg-icon.read {
   g {
-    fill: darken($orange, 10%);
+    fill: $primary;
   }
 }
 

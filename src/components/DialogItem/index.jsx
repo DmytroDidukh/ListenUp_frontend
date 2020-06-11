@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from 'classnames'
 
-import {Time, CheckedSvgIcon} from "components";
+import {Time, SvgIcons} from "components";
 import './DialogItem.scss'
 
 const DialogItem = ({isMe, user, text, isRead, created_at, unreadCount}) => {
@@ -21,7 +21,7 @@ const DialogItem = ({isMe, user, text, isRead, created_at, unreadCount}) => {
                     <span className={'dialogs__item__last-message'}>{text}</span>
                     {
                          !isMe ? (
-                            <CheckedSvgIcon isRead={isRead && true}/>
+                            <SvgIcons type={'checked'} isRead={isRead && true}/>
                         ) : (
                             <span className={'dialogs__item__unread-counter'}>{unreadCount}</span>
                         )

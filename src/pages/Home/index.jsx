@@ -53,7 +53,7 @@ const Home = () => {
             created_at: new Date(2020, 5, 4, 10, 57),
             user: {
                 fullName: 'Elton John',
-                avatar: 'https://lh3.googleusercontent.com/proxy/RH8qvUARBhOFGfFgWOnVhdUkC6-uwnQjhKkRh5ZHkywslYkJSuOETALfXR7Se-uAcZ5aXeBz9ZM35ApxhFU7jDraqldqD1wH2MVTJlMZc1IJEceqSgYJuFpJWMxTUUXK',
+                avatar: 'https://static1.purepeople.com/articles/8/39/17/18/@/5631449-elton-john-lors-de-la-press-room-de-la-7-100x100-3.jpg',
                 online: true
             },
         },
@@ -89,6 +89,29 @@ const Home = () => {
                 text={'Russia the best!'}
                 attachments={attachments}
 
+            />
+            <Message
+                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                fullName={'Vladimir Putin'}
+                audio={'https://notificationsounds.com/soundfiles/7750ca3559e5b8e1f44210283368fc16/file-sounds-1159-promise.mp3'}
+
+            />
+            <Message
+                avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
+                fullName={'Donald Trump'}
+                isMe
+                attachments={[attachments[0]]}
+            />
+            <Message
+                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                fullName={'Vladimir Putin'}
+                attachments={[attachments[0]]}
+                text={'Russia the best!'}
+            />
+            <Message
+                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                fullName={'Vladimir Putin'}
+                isTyping
             />
             {/*       <Message
                 avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
