@@ -27,10 +27,10 @@
   }
 
   &__bubble {
-    background: $orange;
+    background: $blue-gb;
     box-shadow: 0 5px 5px rgba(54, 116, 255, 0.2);
     border-radius: 12px 12px 12px 0;
-    border: 1px solid darken($orange, 5%);
+    border: 1px solid darken($primary, 5%);
     padding: 15px;
     margin-bottom: 8px;
   }
@@ -61,7 +61,7 @@
       left: 0;
       top: 0;
       position: absolute;
-      background-color: lighten($orange, 20%);
+      background-color: lighten($secondary, 20%);
       height: 100%;
       transition: width .3s ease;
     }
@@ -78,7 +78,7 @@
       button {
         width: 30px;
         height: 30px;
-        background-color: $primary;
+        background-color: $secondary;
         border-radius: 50%;
         border: none;
         cursor: pointer;
@@ -106,7 +106,7 @@
     }
 
     #{$self}__bubble {
-      background: $light-silver;
+      background: $silver-bg;
       border: 1px solid darken($light-silver, 5%);
       box-shadow: 0 5px 5px rgba(154, 154, 154, 0.2);
       border-radius: 12px 12px 0 12px;
@@ -164,7 +164,7 @@
   }
 
   &__typing {
-    background-color: $orange;
+    background: $blue-gb;
     will-change: transform;
     width: auto;
     border-radius: 50px;
@@ -182,7 +182,7 @@
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      background-color: $orange;
+      background-color: $secondary;
     }
 
     &::after {

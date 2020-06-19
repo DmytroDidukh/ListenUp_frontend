@@ -29,7 +29,7 @@ const Home = () => {
             created_at: new Date(),
             user: {
                 fullName: 'Bob Dylan',
-                avatar: 'https://www.feeling.com.mx/img/2016/10/Bob-Dylan-150x150.jpg'
+                avatar: null
             },
 
         },
@@ -65,7 +65,7 @@ const Home = () => {
             created_at: new Date(2020, 5, 6, 0, 12),
             user: {
                 fullName: 'Daniel Del Luis',
-                avatar: 'https://www.biography.com/.image/t_share/MTE5NTU2MzE2MTk1NTU0ODI3/daniel-day-lewis-9268727-2-402.jpg',
+                avatar: null,
                 online: false
             },
         },
