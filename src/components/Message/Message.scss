@@ -21,7 +21,7 @@
 
     img {
       border-radius: 50px;
-      width: 32px;
+      width: 32px !important;
       height: 32px;
     }
   }
@@ -94,6 +94,7 @@
   &--is-me {
     display: flex;
     flex-direction: row-reverse;
+    align-self: flex-end;
 
     #{$self}__content {
       align-items: flex-end;

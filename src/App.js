@@ -7,7 +7,6 @@ import './styles/index.scss';
 const App = () => {
     return (
     <div className="wrapper">
-        <Link to={'home'}>home</Link>
         <Route exact path={['/', '/login', '/registration']} component={Auth}/>
         <Route exact path={'/home'} component={Home}/>
     </div>

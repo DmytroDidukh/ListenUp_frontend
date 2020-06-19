@@ -1,4 +1,5 @@
 import React from "react";
+import { Label } from 'semantic-ui-react'
 import classNames from 'classnames'
 
 import {Time, SvgIcons, Avatar} from "components";
@@ -22,7 +23,9 @@ const DialogItem = ({isMe, user, text, isRead, created_at, unreadCount}) => {
                         !isMe ? (
                             <SvgIcons type={'checked'} isRead={isRead && true}/>
                         ) : (
-                            <span className={'dialogs__item__unread-counter'}>{unreadCount}</span>
+                            <Label className='dialogs__item__unread-counter' circular>
+                                {unreadCount}
+                            </Label>
                         )
                     }
                 </div>

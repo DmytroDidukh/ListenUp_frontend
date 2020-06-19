@@ -1,7 +1,8 @@
 import React from 'react';
+import { Input } from 'semantic-ui-react'
 
-import {Message, Dialogs} from 'components';
-
+import {Message, Dialogs, Avatar} from 'components';
+import './Home.scss'
 
 const Home = () => {
 
@@ -72,71 +73,61 @@ const Home = () => {
     ]
 
     return (
-        <div>
-            <Dialogs items={messages} ownerId={2}/>
+        <div className='chat'>
+            <div className='chat__left-bar'>
+                <Input className='chat__left-bar__search-dialog' icon='search' placeholder='Search dialog...' />
+                <Dialogs items={messages} ownerId={2}/>
+            </div>
+            <div className='chat__right-bar'>
+                <div className='chat__right-bar__header'>
+                    <Avatar username='Donald Trump'/>
+                    Donald Trump
+                </div>
+                <div className='chat__right-bar__body'>
+                    <Message
+                        avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
+                        fullName={'Donald Trump'}
+                        text={'You can connect Him on telegram... Wow this is amazing.'}
+                        isMe
+                        isRead
+                    />
+                    <Message
+                        avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                        fullName={'Vladimir Putin'}
+                        text={'Russia the best!'}
+                        attachments={attachments}
+
+                    />
+                    <Message
+                        avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                        fullName={'Vladimir Putin'}
+                        audio={'https://notificationsounds.com/soundfiles/7750ca3559e5b8e1f44210283368fc16/file-sounds-1159-promise.mp3'}
+
+                    />
+                    <Message
+                        avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
+                        fullName={'Donald Trump'}
+                        isMe
+                        attachments={[attachments[0]]}
+                    />
+                    <Message
+                        avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                        fullName={'Vladimir Putin'}
+                        attachments={[attachments[0]]}
+                        text={'Russia the best!'}
+                    />
+                    <Message
+                        avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
+                        fullName={'Vladimir Putin'}
+                        isTyping
+                    />
+                </div>
+            </div>
 
 
-            <Message
-                avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
-                fullName={'Donald Trump'}
-                text={'You can connect Him on telegram... Wow this is amazing.'}
-                isMe
-                isRead
-            />
-            <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                text={'Russia the best!'}
-                attachments={attachments}
 
-            />
-            <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                audio={'https://notificationsounds.com/soundfiles/7750ca3559e5b8e1f44210283368fc16/file-sounds-1159-promise.mp3'}
 
-            />
-            <Message
-                avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
-                fullName={'Donald Trump'}
-                isMe
-                attachments={[attachments[0]]}
-            />
-            <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                attachments={[attachments[0]]}
-                text={'Russia the best!'}
-            />
-            <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                isTyping
-            />
-            {/*       <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                isTyping
-            />
-            <Message
-                avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
-                fullName={'Donald Trump'}
-                isMe
-                attachments={[attachments[0]]}
-            />
 
-            <Message
-                avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
-                fullName={'Donald Trump'}
-                isMe
-                attachments={attachments}
-
-            />
-            <Message
-                avatar={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMsdK5uG_m9hFaKhjmSZ759q5n1o5Ay64i_j7QKMjlzdtG9plD&usqp=CAU'}
-                fullName={'Vladimir Putin'}
-                text={'USA suck!'}
-            />*/}
         </div>
     )
 };

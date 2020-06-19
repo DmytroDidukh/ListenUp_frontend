@@ -5,6 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import App from './App';
 
 import './index.scss';
+import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <React.StrictMode>

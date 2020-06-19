@@ -1,0 +1,42 @@
+@import '~styles/variables';
+
+.chat {
+  display: flex;
+  height: 100vh;
+
+  &__left-bar {
+
+    &__search-dialog {
+      width: 100%;
+      padding: 10px;
+      input {
+        background: $light-silver !important;
+      }
+    }
+  }
+
+  &__right-bar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &__header {
+      padding: 20px;
+      box-shadow: 5px 5px 5px rgba(167, 167, 167, 0.2);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+    }
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid $light-silver;
+      border-left: 1px solid $light-silver;
+      padding: 40px 20px;
+      overflow-y: scroll;
+      background: $light-silver;
+      box-shadow: inset 5px 0px 5px rgba($dark-silver, 0.2);
+    }
+  }
+}
