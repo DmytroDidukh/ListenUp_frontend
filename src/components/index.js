@@ -6,4 +6,5 @@ export {default as Dialogs} from './Dialogs'
 export {default as DialogItem} from './DialogItem'
 export {default as Time} from './Time'
 export {default as SvgIcons} from './SvgIcons'
+export {default as Avatar} from './Avatar'
 

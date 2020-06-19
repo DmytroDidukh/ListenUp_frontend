@@ -53,7 +53,7 @@ const Home = () => {
             created_at: new Date(2020, 5, 4, 10, 57),
             user: {
                 fullName: 'Elton John',
-                avatar: 'https://static1.purepeople.com/articles/8/39/17/18/@/5631449-elton-john-lors-de-la-press-room-de-la-7-100x100-3.jpg',
+                avatar: null,
                 online: true
             },
         },
@@ -65,7 +65,7 @@ const Home = () => {
             created_at: new Date(2020, 5, 6, 0, 12),
             user: {
                 fullName: 'Daniel Del Luis',
-                avatar: null,
+                avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDLGIBHYJVp4y-G4TuQXXZ-vDt4m8YitCscDXzJIRsvKsA9X8h&usqp=CAU',
                 online: false
             },
         },
