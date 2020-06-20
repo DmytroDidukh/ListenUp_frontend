@@ -1,0 +1,18 @@
+.avatar {
+
+  img, span {
+    border-radius: 50%;
+    width: 50px;
+  }
+
+  span {
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+}

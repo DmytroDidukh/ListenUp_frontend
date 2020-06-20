@@ -1,0 +1,74 @@
+@import '~styles/variables';
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dialogs__item {
+  $self: &;
+  padding: 10px;
+  display: flex;
+  width: 400px;
+  border-bottom: 1px solid $light-silver;
+  cursor: pointer;
+  transition: all .1s ease-in-out;
+
+  &:hover {
+    background-color: lighten($secondary, 40%);
+  }
+
+  &__avatar {
+    position: relative;
+  }
+
+  &--online {
+    #{$self}__avatar:after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      width: 13px;
+      height: 13px;
+      bottom: 2px;
+      right: 2px;
+      background-color: limegreen;
+      border: 2px solid white;
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 10px;
+    flex: 1;
+
+    &-top {
+      @include flex-between;
+
+      #{$self}__contact-name {
+        font-weight: 600;
+        font-size: 16px;
+      }
+    }
+
+    &-bottom {
+      @include flex-between;
+      width: 100%;
+
+      #{$self}__last-message {
+        width: 250px;
+        font-size: 14px;
+        color: $dark-silver;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      #{$self}__unread-counter {
+        background: $secondary !important;
+        color: white !important;
+      }
+    }
+  }
+}

@@ -1,14 +1,14 @@
 import React from 'react';
+import {Route, Link} from "react-router-dom";
 
-import {Authorization} from './pages'
-
+import {Auth, Home} from 'pages';
 import './styles/index.scss';
 
 const App = () => {
-
     return (
     <div className="wrapper">
-        <Authorization/>
+        <Route exact path={['/', '/login', '/registration']} component={Auth}/>
+        <Route exact path={'/home'} component={Home}/>
     </div>
   );
 };

@@ -3,96 +3,108 @@ import {Form, Input} from 'antd';
 import {UserOutlined, LockOutlined, MailOutlined, InfoCircleOutlined} from '@ant-design/icons';
 import {Link} from "react-router-dom";
 
-import {Button, Block} from '../../../components'
+import {Button, Block} from 'components';
+import {onValidateField} from 'utils/helpers';
 
 
-const RegistrationForm = () => {
-    const [success, setSuccess] = useState(false);
+const RegistrationForm = (props) => {
+    const [validated, setValidated] = useState(false);
+
+    const onSubmitErrorMessage = 'Some fields are empty or wrong';
+    const [email, username, password, confirmPass, error, success] = ['email', 'username', 'password', 'confirmPass', 'error', 'success']
+
+    const {
+        values,
+        touched,
+        errors,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        isValid
+    } = props;
+
+    const onValidateHelp = (value) => (
+        !touched[value] ? '' : errors[value]
+    );
 
     return (
         <div>
-            <div className={'authorization__top'}>
+            <div className={'auth__top'}>
                 <h2>Registration</h2>
                 <p>To start chatting you need to register first</p>
             </div>
-            <Block className={'authorization__form'}>
-                {!success ? (
-                    <Form
-                        name="normal_login"
-                        className="login-form"
-                        initialValues={{
-                            remember: true,
-                        }}>
-                        <Form.Item
-                            validateStatus={'success'}
-                            /*hasFeedback*/
-                            name="email"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Email!',
-                                },
-                            ]}>
-                            <Input prefix={<MailOutlined className="site-form-item-icon"/>}
+            <Block className={'auth__form'}>
+                {!validated ? (
+                    <Form onSubmit={handleSubmit} className="login-form">
+                        <Form.Item validateStatus={onValidateField(email, errors, touched)}
+                                   help={onValidateHelp(email)}
+                        >
+                            <Input id={email}
+                                   prefix={<MailOutlined className="site-form-item-icon"/>}
                                    placeholder="Email"
-                                   size={'large'}/>
+                                   size={'large'}
+                                   value={values.email}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
                         </Form.Item>
 
-                        <Form.Item
-                            validateStatus={'success'}
-                            /*hasFeedback*/
-                            name="username"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Username!',
-                                },
-                            ]}>
-                            <Input prefix={<UserOutlined className="site-form-item-icon"/>}
+
+                        <Form.Item validateStatus={onValidateField(username, errors, touched)}
+                                   help={onValidateHelp(username)}
+                        >
+                            <Input id={username}
+                                   prefix={<UserOutlined className="site-form-item-icon"/>}
                                    placeholder="Username"
-                                   size={'large'}/>
+                                   value={values.username}
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
                         </Form.Item>
 
-                        <Form.Item
-                            name="password"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please input your Password!',
-                                },
-                            ]}>
-                            <Input
-                                prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password"
-                                placeholder="Password"
-                                size={'large'}/>
+
+                        <Form.Item validateStatus={onValidateField(password, errors, touched)}
+                                   help={onValidateHelp(password)}
+                        >
+                            <Input.Password id={password}
+                                   prefix={<LockOutlined className="site-form-item-icon"/>}
+                                   type="password"
+                                   placeholder="Password"
+                                   value={values.password}
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+
+                            />
+
                         </Form.Item>
 
-                        <Form.Item
-                            name="repeatPass"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Please repeat your password!',
-                                },
-                            ]}>
-                            <Input
-                                prefix={<LockOutlined className="site-form-item-icon"/>}
-                                type="password"
-                                placeholder="Repeat password"
-                                size={'large'}/>
+                        <Form.Item validateStatus={onValidateField(confirmPass, errors, touched)}
+                                   help={onValidateHelp(confirmPass)}
+                        >
+                            <Input.Password id={confirmPass}
+                                   prefix={<LockOutlined className="site-form-item-icon"/>}
+                                   type="password"
+                                   value={values.confirmPass}
+                                   placeholder="Repeat password"
+                                   size={'large'}
+                                   onChange={handleChange}
+                                   onBlur={handleBlur}
+                            />
                         </Form.Item>
 
-                        <Form.Item>
-                            <Button onClick={() => setSuccess(true)} type="primary" htmlType="submit"
+                        <Form.Item help={isSubmitting && isValid && onSubmitErrorMessage}>
+                            <Button onClick={handleSubmit} type="primary" htmlType="submit"
                                     className="login-form-button" size={'large'}>
                                 Register
                             </Button>
                         </Form.Item>
-                        <Link to={'login'} className="authorization__registration">log in</Link>
+                        <Link to={'login'} className="auth__registration">log in</Link>
                     </Form>
                 ) : (
-                    <div className={'authorization__top success-block'}>
+                    <div className={'auth__top success-block'}>
                         <InfoCircleOutlined style={{fontSize: '40px', color: '#096dd9'}}/>
                         <h3>Confirm your email address</h3>
                         <p>A message has been sent to your mail. Follow the link in the description of the message.</p>
