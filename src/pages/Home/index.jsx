@@ -1,7 +1,8 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react'
+import classNames from 'classnames'
+import {Input} from 'semantic-ui-react'
 
-import {Message, Dialogs, Avatar} from 'components';
+import {Message, Dialogs, Avatar, Time} from 'components';
 import './Home.scss'
 
 const Home = () => {
@@ -72,18 +73,34 @@ const Home = () => {
         },
     ]
 
+    const status = true;
+
     return (
         <div className='chat'>
-            <div className='chat__left-bar'>
-                <Input className='chat__left-bar__search-dialog' icon='search' placeholder='Search dialog...' />
+            <div className='chat__left-side'>
+                <Input className='chat__left-side__search-dialog' icon='search' placeholder='Search dialog...'/>
                 <Dialogs items={messages} ownerId={2}/>
             </div>
-            <div className='chat__right-bar'>
-                <div className='chat__right-bar__header'>
-                    <Avatar username='Donald Trump'/>
-                    Donald Trump
+            <div className='chat__right-side'>
+                <div className='chat__right-side__header'>
+                    <div className='chat__right-side__header__user-info'>
+                        <Avatar username='Donald Trump'/>
+                        <div>
+                            <strong className='chat__right-side__header__user-name'>Donald Trump</strong>
+                            <div className={classNames('chat__right-side__header__user-status', {'online': status})}>
+                                {
+                                    status ?
+                                        'online' :
+                                        <>
+                                            <span>last seen </span>
+                                            <Time dateMessage={new Date(2020, 5, 20, 11, 30)}/>
+                                        </>
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className='chat__right-bar__body'>
+                <div className='chat__right-side__body'>
                     <Message
                         avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
                         fullName={'Donald Trump'}
@@ -123,9 +140,6 @@ const Home = () => {
                     />
                 </div>
             </div>
-
-
-
 
 
         </div>
