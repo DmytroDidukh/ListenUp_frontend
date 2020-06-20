@@ -1,4 +1,5 @@
 .dialogs {
-  overflow-y: scroll;
+  overflow-y: auto;
   flex: 1;
+  min-width: 400px;
 }

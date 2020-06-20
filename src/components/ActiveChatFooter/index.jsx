@@ -19,7 +19,7 @@ const ActiveChatFooter = () => {
             </Button>
             {
                 messageValue ? (
-                    <Button icon>
+                    <Button icon className='send-message'>
                         <Icon name='send'/>
                     </Button>
                 ) : (

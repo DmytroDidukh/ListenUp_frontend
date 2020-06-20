@@ -4,12 +4,23 @@
 .chat__active-dialog__footer {
   .ui.icon.button {
     background: lighten($primary, 30%);
-    transition: background-color .15s ease-in-out !important;
+    transition: background-color .1s ease !important;
     margin: 0;
     border-radius: 0;
 
     &:hover {
-      background: lighten($primary, 10%);
+      background: $primary;
+    }
+  }
+
+  .send-message {
+    background: $primary !important;
+    &:hover {
+      background: darken($primary, 5%) !important;
+    }
+
+    i {
+      color: white !important;
     }
   }
 

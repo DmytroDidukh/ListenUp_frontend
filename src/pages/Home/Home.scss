@@ -61,11 +61,12 @@
 
     &__messages-section {
       display: flex;
+      flex: 1;
       flex-direction: column;
       border-top: 1px solid $light-silver;
-      border-left-width: 0px;
-      padding: 40px 20px;
-      overflow-y: scroll;
+      border-left-width: 0;
+      padding: 0 20px;
+      overflow-y: auto;
       background: $light-silver;
       box-shadow: inset 5px 0px 5px rgba($dark-silver, 0.2);
     }
