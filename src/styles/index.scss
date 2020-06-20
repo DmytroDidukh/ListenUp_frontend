@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import '~styles/variables';
 
-html, body, #root, .wrapper {
+html, body, #root, .wrapper, input {
   height: 100%;
   color: #202020;
   font-family: 'Montserrat', -apple-system, sans-serif !important;
@@ -12,6 +12,22 @@ html, body, #root, .wrapper {
 
 * {
   outline: none;
+}
+
+body ::-webkit-scrollbar-track {
+  background: $primary;
+}
+
+body ::-webkit-scrollbar-track {
+  background: rgba(33, 203, 243, 0.15) !important;
+}
+
+body ::-webkit-scrollbar-thumb {
+  background: $primary !important;
+}
+
+body ::-webkit-scrollbar-thumb:hover {
+  background: darken($primary, 10%) !important;
 }
 
 .date {
@@ -66,5 +82,7 @@ a {
     color: darken($primary, 15%);
   }
 }
+
+
 
 
