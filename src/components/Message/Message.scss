@@ -27,7 +27,7 @@
   }
 
   &__bubble {
-    background: $blue-gb;
+    background: $blue-bg;
     box-shadow: 0 5px 5px rgba($primary, 0.2);
     border-radius: 12px 12px 12px 0;
     padding: 15px;
@@ -164,7 +164,7 @@
   }
 
   &__typing {
-    background: $blue-gb;
+    background: $blue-bg;
     will-change: transform;
     width: auto;
     border-radius: 50px;
