@@ -1,13 +1,13 @@
 import React from "react";
 import orderBy from 'lodash/orderBy';
-import {Input, Dimmer, Loader} from 'semantic-ui-react';
+import {Input, Loader} from 'semantic-ui-react';
 import {Empty} from 'antd';
 
 
 import {DialogItem} from "components";
 import './Dialogs.scss';
 
-const DialogsComponent = ({userId, onSearch, inputValue, dialogs, isDialogsLoading}) => {
+const Dialogs = ({userId, onSearch, inputValue, items, isDialogsLoading, onSelectDialog}) => {
 
     return (
         <div className={'dialogs'}>
@@ -18,9 +18,10 @@ const DialogsComponent = ({userId, onSearch, inputValue, dialogs, isDialogsLoadi
                    value={inputValue}
             />
 
-            {dialogs.length ? (
-                orderBy(dialogs, ['created_at'], 'desc').map((dialog) =>
+            {items.length ? (
+                orderBy(items, ['created_at'], 'desc').map((dialog) =>
                     <DialogItem
+                        onSelect={onSelectDialog}
                         key={dialog._id}
                         isMe={dialog._id === userId}
                         {...dialog}
@@ -35,4 +36,4 @@ const DialogsComponent = ({userId, onSearch, inputValue, dialogs, isDialogsLoadi
     )
 };
 
-export default DialogsComponent;
+export default Dialogs;

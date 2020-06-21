@@ -6,18 +6,18 @@ import './Message.scss';
 
 
 const Message = ({
-                     avatar,
-                     text,
+                     message: {
+                         user,
+                         text,
+                         created_at,
+                     },
                      audio,
-                     date = new Date(2020, 4, 1),
-                     fullName,
                      isMe,
                      isRead,
                      isTyping,
-                     attachments = []}) => {
-
+                     attachments = []
+                 }) => {
     const isMessageImage = attachments.length === 1 && !text;
-
 
     return (
         <div className={classNames('message', {
@@ -28,7 +28,7 @@ const Message = ({
             'message--attachments': !text && attachments.length > 1
         })}>
             <div className='message__avatar'>
-                <Avatar avatar={avatar} username={fullName} />
+                <Avatar avatar={user.avatar} username={user.fullName}/>
             </div>
             <div className='message__content'>
                 <div className='message__info'>
@@ -56,7 +56,7 @@ const Message = ({
                     {attachments.map((item, i) => <img key={i} className={'message__attachments-item'} src={item.src}
                                                        alt={item.id}/>)}
                 </div>}
-                {!isTyping && <Time className='message__date' dateMessage={date}/>}
+                {!isTyping && <Time className='message__date' date={created_at}/>}
             </div>
         </div>
     )

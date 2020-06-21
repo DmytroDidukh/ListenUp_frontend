@@ -3,8 +3,8 @@ import {Empty} from 'antd';
 
 import {Message} from 'components';
 
-const Messages = () => {
-    const empty = true;
+const Messages = ({messages}) => {
+    console.log(messages)
 
     const attachments = [
         {
@@ -23,8 +23,22 @@ const Messages = () => {
 
     return (
         <section className='chat__active-dialog__messages-section'>
-            {!empty ? (
-                <>
+            {messages ? (
+                messages.map(message => (
+                    <Message key={message._id} message={message} />
+                ))
+            ) : (
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='No messages'/>
+            )}
+        </section>
+    )
+};
+
+export default Messages;
+
+
+/*
+*  <>
                     <Message
                         avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
                         fullName={'Donald Trump'}
@@ -63,11 +77,4 @@ const Messages = () => {
                         isTyping
                     />
                 </>
-            ) : (
-                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='No messages'/>
-            )}
-        </section>
-    )
-};
-
-export default Messages;
+* */
