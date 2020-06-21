@@ -1,6 +1,7 @@
 const initialState = {
     items: [],
-    activeDialogId: null
+    activeDialogId: null,
+    isLoading: false
 };
 
 export default (state = initialState, {type, payload}) => {
@@ -13,7 +14,7 @@ export default (state = initialState, {type, payload}) => {
         case 'DIALOGS:SET_ACTIVE_DIALOG_ID':
             return {
                 ...state,
-                activeDialogId: payload
+                activeDialogId: payload,
             }
         default:
             return state;

@@ -1,35 +1,37 @@
 import React from "react";
+import {useSelector} from "react-redux";
+import {Message as SemanticMessage, Loader} from 'semantic-ui-react'
 import {Empty} from 'antd';
 
 import {Message} from 'components';
+import './Messages.scss'
 
-const Messages = ({messages}) => {
-    console.log(messages)
-
-    const attachments = [
-        {
-            id: 'image.jpg',
-            src: 'https://images.unsplash.com/photo-1586567078458-b5e499305b97?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
-        },
-        {
-            id: 'image.jpg',
-            src: 'https://images.unsplash.com/photo-1590622079638-495071106ecd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
-        },
-        {
-            id: 'image.jpg',
-            src: 'https://images.unsplash.com/photo-1581703577202-b81fbfddb67b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
-        },
-    ]
+const Messages = ({messages, isLoading}) => {
+    const activeDialogId = useSelector(({dialogs}) => dialogs.activeDialogId);
 
     return (
         <section className='chat__active-dialog__messages-section'>
-            {messages ? (
-                messages.map(message => (
-                    <Message key={message._id} message={message} />
-                ))
-            ) : (
-                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='No messages'/>
-            )}
+            <div style={{overflowY: 'auto'}}>
+                {
+                    isLoading ? (
+                        <Loader active inline content='Messages are loading ...'/>
+                    ) : messages && !isLoading ? (
+                        messages.map(message => (
+                            <Message key={message._id} message={message}/>
+                        ))
+                    ) : activeDialogId && messages.length === 0 ? (
+                        <Empty
+                            className='chat__error-message'
+                            image={Empty.PRESENTED_IMAGE_SIMPLE}
+                            description='No messages'/>
+                    ) : (
+                        <SemanticMessage
+                            className='chat__error-message'
+                            content='Please select a chat to start messaging'
+                        />
+                    )
+                }
+            </div>
         </section>
     )
 };
@@ -39,6 +41,7 @@ export default Messages;
 
 /*
 *  <>
+
                     <Message
                         avatar={'https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/957/2020/02/06114341/President-Donald-Trump-listens-as-Speaker-of-the-House-Nancy-Pelosi-speaks-during-the-68th-Annual-National-Prayer-Breakfast-at-the-Washington-Hilton-100x100.jpg'}
                         fullName={'Donald Trump'}
@@ -77,4 +80,18 @@ export default Messages;
                         isTyping
                     />
                 </>
+                *     const attachments = [
+        {
+            id: 'image.jpg',
+            src: 'https://images.unsplash.com/photo-1586567078458-b5e499305b97?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
+        },
+        {
+            id: 'image.jpg',
+            src: 'https://images.unsplash.com/photo-1590622079638-495071106ecd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
+        },
+        {
+            id: 'image.jpg',
+            src: 'https://images.unsplash.com/photo-1581703577202-b81fbfddb67b?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=100&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=100'
+        },
+    ]
 * */

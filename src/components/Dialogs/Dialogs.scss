@@ -2,11 +2,5 @@
   overflow-y: auto;
   flex: 1;
   min-width: 400px;
-
-  .ui.active.inline.loader {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+  position: relative;
 }

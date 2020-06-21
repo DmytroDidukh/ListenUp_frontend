@@ -5,11 +5,17 @@ const actions = {
         type: 'MESSAGES:SET_ITEMS',
         payload: items
     }),
-    fetchMessages: (dialogId) => async (dispatch) => {
-        await messagesApi.getAllByDialogId('/messages?_id=' + dialogId)
+    setIsLoading: boolean => ({
+        type: 'MESSAGES:SET_IS_LOADING',
+        payload: boolean
+    }),
+    fetchMessages: (dialogId) => (dispatch) => {
+        dispatch(actions.setIsLoading(true))
+        messagesApi.getAllByDialogId(dialogId)
             .then(({data}) => {
                 dispatch(actions.setMessages(data))
             })
+            .catch(() => dispatch(actions.setIsLoading(false)))
     }
 };
 

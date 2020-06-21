@@ -4,25 +4,24 @@ import {useSelector, useDispatch} from "react-redux";
 import {messagesActions} from 'redux/actions'
 import {Messages} from 'components';
 
-const MessagesContainer = ({userId}) => {
-    const {items, activeDialogId} = useSelector(({dialogs, messages}) => ({
+const MessagesContainer = () => {
+    const {items, activeDialogId, isLoading} = useSelector(({dialogs, messages}) => ({
         items: messages.items,
+        isLoading: messages.isLoading,
         activeDialogId: dialogs.activeDialogId
     }));
     const dispatch = useDispatch();
-    const [isDialogsLoading, setIsDialogsLoading] = useState(true);
 
     const {fetchMessages} = messagesActions;
-    console.log(activeDialogId)
 
     useEffect(() => {
-        dispatch(fetchMessages(activeDialogId))
+        activeDialogId && dispatch(fetchMessages(activeDialogId))
     }, [activeDialogId])
 
     return (
         <Messages
             messages={items}
-            isDialogsLoading={isDialogsLoading}
+            isLoading={isLoading}
         />
     )
 };

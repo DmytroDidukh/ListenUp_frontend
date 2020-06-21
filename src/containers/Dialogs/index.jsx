@@ -14,7 +14,6 @@ const DialogsContainer = ({userId}) => {
 
     const {fetchDialogs, setActiveDialogId} = dialogsActions;
 
-
     const onSearch = (e) => {
         const value = e.target.value;
         const newDialogs = items.filter(dialog => (
@@ -25,7 +24,7 @@ const DialogsContainer = ({userId}) => {
     }
 
     const onSelectDialog = (id) => {
-        dispatch(setActiveDialogId(id))
+        dispatch(setActiveDialogId(id));
     }
 
     useEffect(() => {
