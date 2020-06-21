@@ -1,12 +1,13 @@
 import React from "react";
 import orderBy from 'lodash/orderBy';
-import {Input} from 'semantic-ui-react';
+import {Input, Dimmer, Loader} from 'semantic-ui-react';
 import {Empty} from 'antd';
+
 
 import {DialogItem} from "components";
 import './Dialogs.scss';
 
-const DialogsComponent = ({dialogs, userId, onSearch, inputValue}) => {
+const DialogsComponent = ({userId, onSearch, inputValue, dialogs, isDialogsLoading}) => {
 
     return (
         <div className={'dialogs'}>
@@ -18,14 +19,16 @@ const DialogsComponent = ({dialogs, userId, onSearch, inputValue}) => {
             />
 
             {dialogs.length ? (
-                orderBy( dialogs, ['created_at'], 'desc').map((dialog) =>
+                orderBy(dialogs, ['created_at'], 'desc').map((dialog) =>
                     <DialogItem
                         key={dialog._id}
                         isMe={dialog._id === userId}
                         {...dialog}
                     />)
+            ) : isDialogsLoading ? (
+                    <Loader active inline />
             ) : (
-                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='Nothing found' />
+                <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description='Nothing found'/>
             )
             }
         </div>

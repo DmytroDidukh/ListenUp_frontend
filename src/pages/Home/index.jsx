@@ -111,7 +111,7 @@ const Home = () => {
     return (
         <div className='chat'>
             <div className='chat__aside'>
-                <Dialogs dialogs={messages} userId={2}/>
+                <Dialogs userId={2}/>
             </div>
             <div className='chat__active-dialog'>
                 <section className='chat__active-dialog__header'>

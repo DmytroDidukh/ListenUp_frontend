@@ -4,26 +4,25 @@ import {
     formatDistanceToNow,
     format
 } from 'date-fns';
-import classNames from 'classnames'
 
 
-const Time = ({className, dateMessage}) => {
+const Time = ({className, date}) => {
 
-    const getMessageTime = (dateMessage) => {
+    const getMessageTime = (time) => {
         const now = new Date();
-        const hoursFromNow = differenceInHours(now, dateMessage);
+        const hoursFromNow = differenceInHours(now, time);
 
        if (hoursFromNow === 0) {
-           return formatDistanceToNow(dateMessage, {addSuffix: true})
+           return formatDistanceToNow(time, {addSuffix: true})
        } else if (hoursFromNow <= 23) {
-           return format(dateMessage, 'H:mm')
+           return format(time, 'H:mm')
        } else {
-           return format(dateMessage, 'dd/MM/yy')
+           return format(time, 'dd/MM/yy')
        }
     }
 
     return (
-        <time className={`${className} date`}>{getMessageTime(dateMessage)}</time>
+        <time className={`${className} date`}>{getMessageTime(new Date(date))}</time>
     )
 };
 
