@@ -7,7 +7,6 @@ import {Message} from 'components';
 import './Messages.scss'
 
 const Messages = ({messages, isLoading}) => {
-    const activeDialogId = useSelector(({dialogs}) => dialogs.activeDialogId);
 
     return (
         <section className='chat__active-dialog__messages-section'>
@@ -15,11 +14,11 @@ const Messages = ({messages, isLoading}) => {
                 {
                     isLoading ? (
                         <Loader active inline content='Messages are loading ...'/>
-                    ) : messages && !isLoading ? (
+                    ) : messages && !isLoading && messages.length > 0 ? (
                         messages.map(message => (
                             <Message key={message._id} message={message}/>
                         ))
-                    ) : activeDialogId && messages.length === 0 ? (
+                    ) : messages && messages.length === 0 ? (
                         <Empty
                             className='chat__error-message'
                             image={Empty.PRESENTED_IMAGE_SIMPLE}
