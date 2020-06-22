@@ -2,12 +2,25 @@
 
 
 .chat__active-dialog__footer {
+
+  .image-attach {
+    cursor: pointer;
+
+    &:hover {
+      .ui.icon.button {
+        background: $primary;
+      }
+    }
+  }
+
   .ui.icon.button {
     background: lighten($primary, 30%);
     transition: background-color .1s ease !important;
     margin: 0;
     border-radius: 0;
+  }
 
+  .ui.icon.button {
     &:hover {
       background: $primary;
     }
@@ -15,6 +28,7 @@
 
   .send-message {
     background: $primary !important;
+
     &:hover {
       background: darken($primary, 5%) !important;
     }

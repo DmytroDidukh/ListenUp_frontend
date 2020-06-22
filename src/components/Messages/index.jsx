@@ -1,16 +1,15 @@
 import React from "react";
-import {useSelector} from "react-redux";
 import {Message as SemanticMessage, Loader} from 'semantic-ui-react'
 import {Empty} from 'antd';
 
 import {Message} from 'components';
 import './Messages.scss'
 
-const Messages = ({messages, isLoading}) => {
+const Messages = ({messages, isLoading, blockRef}) => {
 
     return (
         <section className='chat__active-dialog__messages-section'>
-            <div style={{overflowY: 'auto'}}>
+            <div style={{overflowY: 'auto'}} ref={blockRef} >
                 {
                     isLoading ? (
                         <Loader active inline content='Messages are loading ...'/>

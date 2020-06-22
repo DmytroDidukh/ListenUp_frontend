@@ -8,6 +8,7 @@ import store from "./redux/store";
 
 import './index.scss';
 import 'semantic-ui-css/semantic.min.css';
+import 'emoji-mart/css/emoji-mart.css'
 
 ReactDOM.render(
       <Provider store={store}>

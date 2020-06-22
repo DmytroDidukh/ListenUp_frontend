@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import {useSelector, useDispatch} from "react-redux";
 
 import {messagesActions} from 'redux/actions'
@@ -11,15 +11,21 @@ const MessagesContainer = () => {
         activeDialogId: dialogs.activeDialogId
     }));
     const dispatch = useDispatch();
+    const messagesRef = useRef(null);
 
     const {fetchMessages} = messagesActions;
 
     useEffect(() => {
         activeDialogId && dispatch(fetchMessages(activeDialogId))
-    }, [activeDialogId])
+    }, [activeDialogId]);
+
+    useEffect(() => {
+        messagesRef.current && messagesRef.current.scrollTo(0, 9999)
+    }, [items])
 
     return (
         <Messages
+            blockRef={messagesRef}
             messages={items}
             isLoading={isLoading}
         />
