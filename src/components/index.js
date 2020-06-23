@@ -10,4 +10,5 @@ export {default as SvgIcons} from './SvgIcons'
 export {default as Avatar} from './Avatar'
 export {default as ActiveChatFooter} from './ActiveChatFooter'
 export {default as ActiveChatHeader} from './ActiveChatHeader'
+export {default as ChatSettings} from './ChatSettings'
 

@@ -8,7 +8,7 @@ import './ActiveChatFooter.scss';
 const ActiveChatFooter = ({emojiPopupVisible, toggleEmojiPopup}) => {
     const [messageValue, setMessageValue] = useState('');
 
-    const setSmileToMessage = (emoji, event) => {
+    const setSmileToMessage = (emoji) => {
         setMessageValue(messageValue + emoji.native)
     }
 

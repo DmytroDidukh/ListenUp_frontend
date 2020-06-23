@@ -21,6 +21,7 @@ const DialogItem = ({
             className={classNames('dialogs__item', {'dialogs__item--online': user.online})}>
             <div className='dialogs__item__avatar'>
                 <Avatar avatar={user.avatar} username={user.fullName} />
+                {console.log(user._id)}
             </div>
             <div className='dialogs__item-info'>
                 <div className='dialogs__item-info-top'>

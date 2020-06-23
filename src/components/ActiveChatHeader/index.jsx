@@ -38,6 +38,7 @@ const ActiveChatHeader = () => {
                 </div>
                 )
             }
+
         </section>
 
     )

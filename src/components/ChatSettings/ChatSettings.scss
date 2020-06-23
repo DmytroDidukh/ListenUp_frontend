@@ -1,0 +1,64 @@
+@import '~styles/variables';
+
+.dialogs__header__settings {
+  .settings-popup {
+    background-color: $primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 410px;
+    z-index: 10;
+    padding: 0 10px;
+    transform: translateX(-100%);
+    transition: transform .2s ease-in-out;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    &__user-info {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid $light-silver;
+      padding: 20px 10px;
+
+      .user-name {
+        color: white;
+        margin-left: 10px;
+        font-size: 18px;
+      }
+    }
+
+    &__options-list {
+      padding-top: 10px;
+      padding-left: 50px;
+
+      li {
+        padding: 15px 0;
+        font-size: 20px;
+        color: $light-silver;
+        cursor: pointer;
+
+        &:hover {
+          color: darken($light-silver, 10%)
+        }
+      }
+    }
+  }
+
+  .bars, .close {
+    font-size: 2.5em;
+    margin-right: 10px;
+    line-height: 100%;
+    color: darken($dark-silver, 30%);
+    cursor: pointer;
+    transition: background-color .1s ease;
+
+    &:hover {
+      color: darken($dark-silver, 50%);
+    }
+  }
+}
+
+

@@ -20,9 +20,7 @@ const Home = () => {
 
     return (
         <div className='chat' onClick={toggleEmojiPopup}>
-            <div className='chat__aside'>
-                <DialogsContainer userId={2}/>
-            </div>
+            <DialogsContainer userId={2}/>
             <div className='chat__active-dialog'>
                 <ActiveChatHeader/>
                 <MessagesContainer/>

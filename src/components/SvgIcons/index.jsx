@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from 'classnames'
+import {Icon} from "semantic-ui-react";
 
 
 const SvgIcons = ({type, isRead}) => {
@@ -48,22 +49,6 @@ const SvgIcons = ({type, isRead}) => {
             <path d="M111.997 0V30" stroke="white" strokeWidth="3"/>
             <path d="M124.301 0V30" stroke="white" strokeWidth="3"/>
         </svg>
-
-    )
-
-    const playIcon = (
-        <svg width="15" height="15" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M2.46284 0.763781C1.79706 0.416162 1 0.89916 1 1.65023V18.4138C1 19.1494 1.76746 19.6332 2.43117 19.3161L19.1948 11.3052C19.9384 10.9498 19.957 9.89791 19.2264 9.51645L2.46284 0.763781Z"
-                fill="white" stroke="white"/>
-        </svg>
-    )
-
-    const pauseIcon = (
-        <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="5" height="15" fill="white"/>
-            <rect x="8" width="5" height="15" fill="white"/>
-        </svg>
     )
 
     switch (type) {
@@ -71,10 +56,8 @@ const SvgIcons = ({type, isRead}) => {
             return checkedIcon;
         case 'wave':
             return waveIcon;
-        case 'play':
-            return playIcon;
-        case 'pause':
-            return pauseIcon;
+        default:
+            return <span>something wrong!</span>
     }
 }
 

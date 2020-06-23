@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import {Icon} from "semantic-ui-react";
 
 import {SvgIcons} from 'components';
 import {convertCurrentTime} from 'utils/helpers';
@@ -51,7 +52,7 @@ const MessageAudio = ({audioSrc}) => {
             <div className='message__audio-info'>
                 <div className='message__audio-btn'>
                     <button onClick={togglePlay}>
-                        <SvgIcons type={isPlaying ? 'pause' : 'play'}/>
+                        {isPlaying ? <Icon name='pause'/> : <Icon name='play circle'/>}
                     </button>
                 </div>
                 <div className='message__audio-svg-wave'>
