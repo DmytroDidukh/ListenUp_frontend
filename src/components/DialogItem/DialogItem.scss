@@ -36,6 +36,19 @@
     }
   }
 
+  &--active {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $primary;
+    }
+
+    #{$self}__last-message, .date {
+      color: white !important;
+    }
+  }
+
+
   &-info {
     display: flex;
     flex-direction: column;

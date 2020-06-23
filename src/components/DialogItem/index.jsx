@@ -1,5 +1,5 @@
 import React from "react";
-import { Label } from 'semantic-ui-react'
+import {Label} from 'semantic-ui-react'
 import classNames from 'classnames';
 
 import {Time, SvgIcons, Avatar} from "components";
@@ -13,14 +13,18 @@ const DialogItem = ({
                         isRead,
                         created_at,
                         unreadCount,
-                        onSelect
-}) => {
+                        onSelect,
+                        activeDialogId
+                    }) => {
 
     return (
         <div onClick={onSelect.bind(this, _id)}
-            className={classNames('dialogs__item', {'dialogs__item--online': user.online})}>
+             className={classNames('dialogs__item', {
+                 'dialogs__item--online': user.online,
+                 'dialogs__item--active': _id === activeDialogId
+             })}>
             <div className='dialogs__item__avatar'>
-                <Avatar avatar={user.avatar} username={user.fullName} />
+                <Avatar avatar={user.avatar} username={user.fullName}/>
                 {console.log(user._id)}
             </div>
             <div className='dialogs__item-info'>

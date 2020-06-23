@@ -5,7 +5,10 @@ import {dialogsActions} from 'redux/actions'
 import {Dialogs} from 'components';
 
 const DialogsContainer = ({userId}) => {
-    const items = useSelector(({dialogs}) => dialogs.items);
+    const {items, activeDialogId} = useSelector(({dialogs}) => ({
+        items: dialogs.items,
+        activeDialogId: dialogs.activeDialogId,
+    }));
     const dispatch = useDispatch();
 
     const [filteredDialogs, setFilteredDialogs] = useState(items);
@@ -44,6 +47,7 @@ const DialogsContainer = ({userId}) => {
             inputValue={searchInputValue}
             isDialogsLoading={isDialogsLoading}
             onSelectDialog={onSelectDialog}
+            activeDialogId={activeDialogId}
         />
     )
 };

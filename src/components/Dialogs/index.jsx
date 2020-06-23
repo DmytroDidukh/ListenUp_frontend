@@ -8,7 +8,15 @@ import {DialogItem} from "components";
 import {ChatSettingsContainer} from "containers";
 import './Dialogs.scss';
 
-const Dialogs = ({userId, onSearch, inputValue, items, isDialogsLoading, onSelectDialog}) => {
+const Dialogs = ({
+                     userId,
+                     onSearch,
+                     inputValue,
+                     items,
+                     isDialogsLoading,
+                     onSelectDialog,
+                     activeDialogId
+}) => {
 
     return (
         <div className={'chat__dialogs'}>
@@ -29,6 +37,7 @@ const Dialogs = ({userId, onSearch, inputValue, items, isDialogsLoading, onSelec
                             onSelect={onSelectDialog}
                             key={dialog._id}
                             isMe={dialog._id === userId}
+                            activeDialogId={activeDialogId}
                             {...dialog}
                         />)
                 ) : isDialogsLoading ? (
