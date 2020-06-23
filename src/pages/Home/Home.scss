@@ -4,65 +4,16 @@
   display: flex;
   height: 100vh;
 
-  &__aside {
-    display: flex;
-    flex-direction: column;
-
-    &__search-dialog {
-      width: 100%;
-      padding: 20px 10px;
-      border-bottom: 1px solid  $light-silver;
-      border-right: 1px solid  $light-silver;
-
-      input {
-        background: $light-silver !important;
-      }
-
-      .search.icon {
-        margin-right: 10px !important;
-      }
-    }
-  }
-
   &__active-dialog {
     display: flex;
     flex-direction: column;
     flex: 1;
 
-    &__header {
-      $self: &;
-      padding: 20px;
-      box-shadow: 5px 5px 5px rgba(167, 167, 167, 0.2);
-      z-index: 5;
-
-      &__user-info {
-        display: flex;
-        align-items: center;
-
-        .avatar {
-          margin-right: 10px;
-        }
-
-        #{$self}__user-name {
-          font-size: 16px;
-        }
-
-        #{$self}__user-status {
-          color: $dark-silver;
-          font-size: 12px;
-        }
-
-        #{$self}__user-status.online {
-          color: $secondary;
-          font-weight: bold;
-        }
-      }
-    }
-
     &__messages-section {
       display: flex;
       flex: 1;
       flex-direction: column;
+      justify-content: flex-end;
       border-top: 1px solid $light-silver;
       border-left-width: 0;
       padding: 0 20px;

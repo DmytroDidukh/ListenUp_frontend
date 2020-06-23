@@ -1,29 +1,51 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
 
-import {DialogsComponent} from 'components';
+import {dialogsActions} from 'redux/actions'
+import {Dialogs} from 'components';
 
-const Dialogs = ({dialogs, userId}) => {
-    const [filteredDialogs, setFilteredDialogs] = useState(dialogs);
+const DialogsContainer = ({userId}) => {
+    const items = useSelector(({dialogs}) => dialogs.items);
+    const dispatch = useDispatch();
+
+    const [filteredDialogs, setFilteredDialogs] = useState(items);
     const [searchInputValue, setSearchInputValue] = useState('');
+    const [isDialogsLoading, setIsDialogsLoading] = useState(true);
+
+    const {fetchDialogs, setActiveDialogId} = dialogsActions;
 
     const onSearch = (e) => {
         const value = e.target.value;
-        const newDialogs = dialogs.filter( dialog => (
+        const newDialogs = items.filter(dialog => (
             dialog.user.fullName.toLowerCase().includes(value.toLowerCase())
         ))
         setFilteredDialogs(newDialogs);
         setSearchInputValue(value)
     }
 
+    const onSelectDialog = (id) => {
+        dispatch(setActiveDialogId(id));
+    }
+
+    useEffect(() => {
+        if (!items.length) {
+            dispatch(fetchDialogs())
+        } else  {
+            setFilteredDialogs(items);
+            setIsDialogsLoading(false)
+        }
+    }, [items])
 
     return (
-        <DialogsComponent
-            dialogs={filteredDialogs}
+        <Dialogs
+            items={filteredDialogs}
             userId={userId}
             onSearch={onSearch}
             inputValue={searchInputValue}
+            isDialogsLoading={isDialogsLoading}
+            onSelectDialog={onSelectDialog}
         />
     )
 };
 
-export default Dialogs;
+export default DialogsContainer;
