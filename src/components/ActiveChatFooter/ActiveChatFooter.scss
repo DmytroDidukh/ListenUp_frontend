@@ -47,5 +47,15 @@
       height: fit-content;
     }
   }
+
+  .emoji-block {
+    position: relative;
+
+    .emoji-mart {
+      position: absolute;
+      top: -430px;
+      right: 5px;
+    }
+  }
 }
 
