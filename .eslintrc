@@ -2,9 +2,11 @@
   "parser": "babel-eslint",
   "extends": [
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
-  "plugins": ["react-hooks", "prettier"],
+  "plugins": ["react-hooks", "prettier", "react"],
   "globals": {
     "document": true,
     "window": true,

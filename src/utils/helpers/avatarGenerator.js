@@ -10,7 +10,6 @@ export default (username) => {
     const userInitials = lastName ? firstName[0] + lastName[0] : firstName[0];
 
     const color = colors[randomizer()];
-
     return {
         avatarColor: `linear-gradient(45deg, ${color} 30%, ${tinycolor(color).lighten(20)} 90%)`,
         userInitials: userInitials,

@@ -13,7 +13,7 @@ export default withFormik({
     },
 
     handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
+        window.setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
         }, 1000);
