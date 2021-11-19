@@ -112,10 +112,8 @@
     }
   },
   "lint-staged": {
-    "src/.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --ext --fix"
-    ]
+    "*.js": ["eslint", "prettier --write"],
+    "*.jsx": ["eslint", "prettier --write"]
   },
   "stylelint": {
     "extends": "./linters/stylelintrc.json"
