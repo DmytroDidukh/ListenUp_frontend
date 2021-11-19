@@ -1,32 +1,32 @@
 @import '~styles/variables';
 
 .chat__dialogs {
-  min-width: 400px;
-  position: relative;
+    min-width: 400px;
+    position: relative;
 
-  .dialogs__header {
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
+    .dialogs__header {
+        display: flex;
+        align-items: center;
+        padding: 20px 10px;
 
-    &__search-dialog {
-      flex: 1;
-      border-bottom: 1px solid $light-silver;
-      border-right: 1px solid $light-silver;
+        &__search-dialog {
+            flex: 1;
+            border-bottom: 1px solid $light-silver;
+            border-right: 1px solid $light-silver;
 
-      input {
-        background: $light-silver !important;
-      }
+            input {
+                background: $light-silver !important;
+            }
 
-      .search.icon {
-        margin-right: 10px !important;
-      }
+            .search.icon {
+                margin-right: 10px !important;
+            }
+        }
     }
-  }
 
-  .dialogs__body {
-    flex: 1 1;
-    overflow-y: auto;
-    height: calc(100% - 79px);
-  }
+    .dialogs__body {
+        flex: 1 1;
+        overflow-y: auto;
+        height: calc(100% - 79px);
+    }
 }

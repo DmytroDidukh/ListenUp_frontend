@@ -1,32 +1,31 @@
 @import '~styles/variables';
 
 .chat__active-dialog__header {
-  $self: &;
-  padding: 20px;
-  box-shadow: 5px 5px 5px rgba(167, 167, 167, 0.2);
-  z-index: 5;
+    $self: &;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(167, 167, 167, 0.2);
+    z-index: 5;
 
-  &__user-info {
-    display: flex;
-    align-items: center;
+    &__user-info {
+        display: flex;
+        align-items: center;
 
-    .avatar {
-      margin-right: 10px;
+        .avatar {
+            margin-right: 10px;
+        }
+
+        #{$self}__user-name {
+            font-size: 16px;
+        }
+
+        #{$self}__user-status {
+            color: $dark-silver;
+            font-size: 12px;
+        }
+
+        #{$self}__user-status.online {
+            color: $secondary;
+            font-weight: bold;
+        }
     }
-
-    #{$self}__user-name {
-      font-size: 16px;
-    }
-
-    #{$self}__user-status {
-      color: $dark-silver;
-      font-size: 12px;
-    }
-
-    #{$self}__user-status.online {
-      color: $secondary;
-      font-weight: bold;
-    }
-  }
 }
-

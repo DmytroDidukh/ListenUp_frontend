@@ -7,10 +7,10 @@ import { Button, Block } from 'components';
 import { onValidateField } from 'utils/helpers';
 
 const RegistrationForm = (props) => {
-    const [validated, setValidated] = useState(false);
+    const [validated] = useState(false);
 
     const onSubmitErrorMessage = 'Some fields are empty or wrong';
-    const [email, username, password, confirmPass, error, success] = [
+    const [email, username, password, confirmPass /*, error, success*/] = [
         'email',
         'username',
         'password',

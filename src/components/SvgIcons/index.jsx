@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Icon } from 'semantic-ui-react';
 
 const SvgIcons = ({ type, isRead }) => {
     const checkedIcon = (

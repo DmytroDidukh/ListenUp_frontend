@@ -1,61 +1,58 @@
 @import '~styles/variables';
 
-
 .chat__active-dialog__footer {
+    .image-attach {
+        cursor: pointer;
 
-  .image-attach {
-    cursor: pointer;
-
-    &:hover {
-      .ui.icon.button {
-        background: $primary;
-      }
-    }
-  }
-
-  .ui.icon.button {
-    background: lighten($primary, 30%);
-    transition: background-color .1s ease !important;
-    margin: 0;
-    border-radius: 0;
-  }
-
-  .ui.icon.button {
-    &:hover {
-      background: $primary;
-    }
-  }
-
-  .send-message {
-    background: $primary !important;
-
-    &:hover {
-      background: darken($primary, 5%) !important;
+        &:hover {
+            .ui.icon.button {
+                background: $primary;
+            }
+        }
     }
 
-    i {
-      color: white !important;
+    .ui.icon.button {
+        background: lighten($primary, 30%);
+        transition: background-color 0.1s ease !important;
+        margin: 0;
+        border-radius: 0;
     }
-  }
 
-  .input {
-    flex: 1;
-
-    input {
-      border-radius: 0 !important;
-      border: none !important;
-      height: fit-content;
+    .ui.icon.button {
+        &:hover {
+            background: $primary;
+        }
     }
-  }
 
-  .emoji-block {
-    position: relative;
+    .send-message {
+        background: $primary !important;
 
-    .emoji-mart {
-      position: absolute;
-      top: -430px;
-      right: 5px;
+        &:hover {
+            background: darken($primary, 5%) !important;
+        }
+
+        i {
+            color: white !important;
+        }
     }
-  }
+
+    .input {
+        flex: 1;
+
+        input {
+            border-radius: 0 !important;
+            border: none !important;
+            height: fit-content;
+        }
+    }
+
+    .emoji-block {
+        position: relative;
+
+        .emoji-mart {
+            position: absolute;
+            top: -430px;
+            right: 5px;
+        }
+    }
 }
-

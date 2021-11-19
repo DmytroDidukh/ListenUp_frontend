@@ -1,233 +1,227 @@
 @import '~styles/variables';
 
 .message {
-  $self: &;
+    $self: &;
 
-  display: flex;
-  max-width: 440px;
-  margin-bottom: 15px;
-
-  &__content {
     display: flex;
-    /* align-items: flex-end; */
-    flex-direction: column;
-  }
+    max-width: 440px;
+    margin-bottom: 15px;
 
-  &__avatar {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 23px;
-    margin-right: $message-content-side-m;
-
-    img {
-      border-radius: 50px;
-      width: 32px !important;
-      height: 32px;
-    }
-  }
-
-  &__bubble {
-    background: $blue-bg;
-    box-shadow: 0 5px 5px rgba($primary, 0.2);
-    border-radius: 12px 12px 12px 0;
-    padding: 15px;
-    margin-bottom: 8px;
-  }
-
-  &__text {
-    color: white;
-    line-height: 20px;
-  }
-
-  &__attachments {
-    &-item {
-      width: 40px;
-      border-radius: 5px;
-      margin: 0 2px 10px;
-      cursor: pointer;
-    }
-  }
-
-  &__audio {
-    position: relative;
-    padding: 10px 15px;
-
-    audio {
-      display: none;
+    &__content {
+        display: flex;
+        /* align-items: flex-end; */
+        flex-direction: column;
     }
 
-    &-progress {
-      left: 0;
-      top: 0;
-      position: absolute;
-      background-color: lighten($secondary, 20%);
-      height: 100%;
-      transition: width .3s ease;
-    }
+    &__avatar {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 23px;
+        margin-right: $message-content-side-m;
 
-    &-info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      z-index: 5;
-    }
-
-    &-btn {
-      button {
-        width: 30px;
-        height: 30px;
-        background-color: $primary;
-        border-radius: 50%;
-        border: none;
-        cursor: pointer;
-      }
-    }
-
-    &-duration {
-      color: white;
-      width: 50px;
-      text-align: right;
-    }
-  }
-
-  &--is-me {
-    display: flex;
-    flex-direction: row-reverse;
-    align-self: flex-end;
-
-    #{$self}__content {
-      align-items: flex-end;
-    }
-
-    #{$self}__avatar {
-      margin-right: 0;
-      margin-left: $message-content-side-m;
-    }
-
-    #{$self}__bubble {
-      background: $silver-bg;
-      border: 1px solid darken($light-silver, 5%);
-      box-shadow: 0 5px 5px rgba(154, 154, 154, 0.2);
-      border-radius: 12px 12px 0 12px;
-
-      #{$self}__text {
-        color: $black;
-      }
-    }
-
-    #{$self}__info {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: flex-end;
-    }
-
-    .svg-wrapper {
-      margin-right: $message-content-side-m;
-      margin-bottom: 10px;
-    }
-  }
-
-  &--image, &--attachments {
-    #{$self}__content {
-      flex-direction: row;
-      position: relative;
-    }
-
-    #{$self}__avatar {
-      margin-bottom: 15px;
-    }
-
-    #{$self}__attachments-item {
-      width: 150px;
-    }
-
-    #{$self}__date {
-      position: absolute;
-      right: 0;
-      margin-top: 8px;
-    }
-  }
-
-  &--attachments {
-    #{$self}__attachments-item {
-      width: 40px;
-    }
-  }
-
-  &--audio {
-    #{$self}__bubble {
-      width: 280px;
-      overflow: hidden;
-      padding: 0;
-    }
-  }
-
-  &--is-typing {
-    margin-bottom: 2px;
-    display: flex;
-    align-items: flex-end;
-
-#{$self}__avatar {
-  margin-bottom: -12px;
-}
-    #{$self}__typing {
-      background: $blue-bg;
-      will-change: transform;
-      width: auto;
-      border-radius: 50px;
-      padding: 10px;
-      display: table;
-      margin: 0 auto;
-      position: relative;
-
-      &::before,
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: -2px;
-        height: 10px;
-        width: 10px;
-        border-radius: 50%;
-        background-color: $secondary;
-      }
-
-      &::after {
-        height: 10px;
-        width: 10px;
-        left: -10px;
-        bottom: -10px;
-      }
-
-      span {
-        height: 10px;
-        width: 10px;
-        float: left;
-        margin: 0 1px;
-        background-color: $light-silver;
-        display: block;
-        border-radius: 50%;
-        opacity: 0.4;
-        @for $i from 1 through 3 {
-          &:nth-of-type(#{$i}) {
-            animation: 1s blink infinite ($i * .3333s);
-          }
+        img {
+            border-radius: 50px;
+            width: 32px !important;
+            height: 32px;
         }
-      }
     }
-  }
 
+    &__bubble {
+        background: $blue-bg;
+        box-shadow: 0 5px 5px rgba($primary, 0.2);
+        border-radius: 12px 12px 12px 0;
+        padding: 15px;
+        margin-bottom: 8px;
+    }
 
+    &__text {
+        color: white;
+        line-height: 20px;
+    }
+
+    &__attachments {
+        &-item {
+            width: 40px;
+            border-radius: 5px;
+            margin: 0 2px 10px;
+            cursor: pointer;
+        }
+    }
+
+    &__audio {
+        position: relative;
+        padding: 10px 15px;
+
+        audio {
+            display: none;
+        }
+
+        &-progress {
+            left: 0;
+            top: 0;
+            position: absolute;
+            background-color: lighten($secondary, 20%);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        &-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 5;
+        }
+
+        &-btn {
+            button {
+                width: 30px;
+                height: 30px;
+                background-color: $primary;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+        &-duration {
+            color: white;
+            width: 50px;
+            text-align: right;
+        }
+    }
+
+    &--is-me {
+        display: flex;
+        flex-direction: row-reverse;
+        align-self: flex-end;
+
+        #{$self}__content {
+            align-items: flex-end;
+        }
+
+        #{$self}__avatar {
+            margin-right: 0;
+            margin-left: $message-content-side-m;
+        }
+
+        #{$self}__bubble {
+            background: $silver-bg;
+            border: 1px solid darken($light-silver, 5%);
+            box-shadow: 0 5px 5px rgba(154, 154, 154, 0.2);
+            border-radius: 12px 12px 0 12px;
+
+            #{$self}__text {
+                color: $black;
+            }
+        }
+
+        #{$self}__info {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+        }
+
+        .svg-wrapper {
+            margin-right: $message-content-side-m;
+            margin-bottom: 10px;
+        }
+    }
+
+    &--image,
+    &--attachments {
+        #{$self}__content {
+            flex-direction: row;
+            position: relative;
+        }
+
+        #{$self}__avatar {
+            margin-bottom: 15px;
+        }
+
+        #{$self}__attachments-item {
+            width: 150px;
+        }
+
+        #{$self}__date {
+            position: absolute;
+            right: 0;
+            margin-top: 8px;
+        }
+    }
+
+    &--attachments {
+        #{$self}__attachments-item {
+            width: 40px;
+        }
+    }
+
+    &--audio {
+        #{$self}__bubble {
+            width: 280px;
+            overflow: hidden;
+            padding: 0;
+        }
+    }
+
+    &--is-typing {
+        margin-bottom: 2px;
+        display: flex;
+        align-items: flex-end;
+
+        #{$self}__avatar {
+            margin-bottom: -12px;
+        }
+        #{$self}__typing {
+            background: $blue-bg;
+            will-change: transform;
+            width: auto;
+            border-radius: 50px;
+            padding: 10px;
+            display: table;
+            margin: 0 auto;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: -2px;
+                height: 10px;
+                width: 10px;
+                border-radius: 50%;
+                background-color: $secondary;
+            }
+
+            &::after {
+                height: 10px;
+                width: 10px;
+                left: -10px;
+                bottom: -10px;
+            }
+
+            span {
+                height: 10px;
+                width: 10px;
+                float: left;
+                margin: 0 1px;
+                background-color: $light-silver;
+                display: block;
+                border-radius: 50%;
+                opacity: 0.4;
+                @for $i from 1 through 3 {
+                    &:nth-of-type(#{$i}) {
+                        animation: 1s blink infinite ($i * 0.3333s);
+                    }
+                }
+            }
+        }
+    }
 }
 
 @keyframes blink {
-  50% {
-    opacity: 1;
-  }
+    50% {
+        opacity: 1;
+    }
 }
-
-
-
-
-

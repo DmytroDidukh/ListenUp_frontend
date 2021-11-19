@@ -1,4 +1,4 @@
-export default ({ isAuth, values, errors }) => {
+export default ({ /*isAuth,*/ values, errors }) => {
     const rules = {
         email: (value) => {
             if (!value) {

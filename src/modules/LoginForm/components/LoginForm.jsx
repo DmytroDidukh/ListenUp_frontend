@@ -8,10 +8,10 @@ import { Button, Block } from 'components';
 const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
     return (
         <div>
-                    <div className={'auth__top'}>
-                        <h2>Welcome!</h2>
-                        <p>Log in or get registration</p>
-                    </div>
+            <div className={'auth__top'}>
+                <h2>Welcome!</h2>
+                <p>Log in or get registration</p>
+            </div>
             <Block className={'auth__form'}>
                 <Form className='login-form'>
                     <Form.Item name='email'>
