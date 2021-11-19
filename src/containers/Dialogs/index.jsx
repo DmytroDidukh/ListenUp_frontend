@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import {dialogsActions} from 'redux/actions'
-import {Dialogs} from 'components';
+import { dialogsActions } from 'redux/actions';
+import { Dialogs } from 'components';
 
-const DialogsContainer = ({userId}) => {
-    const {items, activeDialogId} = useSelector(({dialogs}) => ({
+const DialogsContainer = ({ userId }) => {
+    const { items, activeDialogId } = useSelector(({ dialogs }) => ({
         items: dialogs.items,
         activeDialogId: dialogs.activeDialogId,
     }));
@@ -15,29 +15,29 @@ const DialogsContainer = ({userId}) => {
     const [searchInputValue, setSearchInputValue] = useState('');
     const [isDialogsLoading, setIsDialogsLoading] = useState(true);
 
-    const {fetchDialogs, setActiveDialogId} = dialogsActions;
+    const { fetchDialogs, setActiveDialogId } = dialogsActions;
 
     const onSearch = (e) => {
         const value = e.target.value;
-        const newDialogs = items.filter(dialog => (
-            dialog.user.fullName.toLowerCase().includes(value.toLowerCase())
-        ))
+        const newDialogs = items.filter((dialog) =>
+            dialog.user.fullName.toLowerCase().includes(value.toLowerCase()),
+        );
         setFilteredDialogs(newDialogs);
-        setSearchInputValue(value)
-    }
+        setSearchInputValue(value);
+    };
 
     const onSelectDialog = (id) => {
         dispatch(setActiveDialogId(id));
-    }
+    };
 
     useEffect(() => {
         if (!items.length) {
-            dispatch(fetchDialogs())
-        } else  {
+            dispatch(fetchDialogs());
+        } else {
             setFilteredDialogs(items);
-            setIsDialogsLoading(false)
+            setIsDialogsLoading(false);
         }
-    }, [items])
+    }, [dispatch, fetchDialogs, items]);
 
     return (
         <Dialogs
@@ -49,7 +49,7 @@ const DialogsContainer = ({userId}) => {
             onSelectDialog={onSelectDialog}
             activeDialogId={activeDialogId}
         />
-    )
+    );
 };
 
 export default DialogsContainer;

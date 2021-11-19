@@ -10,8 +10,7 @@
     "lint:css:staged": "stylelint --fix",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
     "lint:js": "eslint ./src",
-    "lint:js:staged": "eslint --fix",
-    "lint:jsx:staged": "eslint --fix"
+    "lint:js:staged": "eslint --fix"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
@@ -116,10 +115,7 @@
   "lint-staged": {
     "server/**/*.js": "npm run lint:js:staged",
     "src/**/*.scss": "npm run lint:css:staged",
-    "src/**/*.{js,jsx}": "npm run lint:js:staged",
-    "*.{js,jsx}": [
-      "prettier --write"
-    ]
+    "src/**/*.{js,jsx}": "npm run lint:js:staged"
   },
   "stylelint": {
     "extends": "./linters/stylelintrc.json"
