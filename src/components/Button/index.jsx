@@ -1,16 +1,31 @@
 import React from "react";
-import classNames from 'classnames'
-import {Button as BaseButton} from 'antd';
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import { Button as BaseButton } from "antd";
 
-import './Button.scss';
+import { BUTTON_SIZE } from "../../consts";
 
-const Button = (props) => {
-    return (
-        <BaseButton {...props} className={classNames('button', props.className, {
-            'button--large': props.size === 'large'
-        })}/>
-    )
-}
+import "./Button.scss";
 
+const Button = ({ size, className, ...rest }) => {
+  return (
+    <BaseButton
+      {...rest}
+      className={classNames("button", className, {
+        "button--large": size === "large",
+      })}
+    />
+  );
+};
+
+Button.propTypes = {
+  size: PropTypes.oneOf(Object.values(BUTTON_SIZE)),
+  classNames: PropTypes.string,
+};
+
+Button.defaultProps = {
+  size: "medium",
+  classNames: undefined,
+};
 
 export default Button;
