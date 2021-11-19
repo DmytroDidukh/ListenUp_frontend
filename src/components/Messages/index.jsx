@@ -1,33 +1,31 @@
-import React from "react";
-import { Message as SemanticMessage, Loader } from "semantic-ui-react";
-import { Empty } from "antd";
+import React from 'react';
+import { Message as SemanticMessage, Loader } from 'semantic-ui-react';
+import { Empty } from 'antd';
 
-import { Message } from "components";
-import "./Messages.scss";
+import { Message } from 'components';
+import './Messages.scss';
 
 const Messages = ({ messages, isLoading, blockRef }) => (
-  <section className="chat__active-dialog__messages-section">
-    <div style={{ overflowY: "auto" }} ref={blockRef}>
-      {isLoading ? (
-        <Loader active inline content="Messages are loading ..." />
-      ) : messages && !isLoading && messages.length > 0 ? (
-        messages.map((message) => (
-          <Message key={message._id} message={message} />
-        ))
-      ) : messages && messages.length === 0 ? (
-        <Empty
-          className="chat__error-message"
-          image={Empty.PRESENTED_IMAGE_SIMPLE}
-          description="No messages"
-        />
-      ) : (
-        <SemanticMessage
-          className="chat__error-message"
-          content="Please select a chat to start messaging"
-        />
-      )}
-    </div>
-  </section>
+    <section className='chat__active-dialog__messages-section'>
+        <div style={{ overflowY: 'auto' }} ref={blockRef}>
+            {isLoading ? (
+                <Loader active inline content='Messages are loading ...' />
+            ) : messages && !isLoading && messages.length > 0 ? (
+                messages.map((message) => <Message key={message._id} message={message} />)
+            ) : messages && messages.length === 0 ? (
+                <Empty
+                    className='chat__error-message'
+                    image={Empty.PRESENTED_IMAGE_SIMPLE}
+                    description='No messages'
+                />
+            ) : (
+                <SemanticMessage
+                    className='chat__error-message'
+                    content='Please select a chat to start messaging'
+                />
+            )}
+        </div>
+    </section>
 );
 
 export default Messages;
