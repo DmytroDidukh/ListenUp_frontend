@@ -1,5 +1,10 @@
 {
   "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "extends": [
     "prettier",
     "prettier/react",
@@ -38,8 +43,22 @@
     "react/jsx-one-expression-per-line":  "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        "props": "never",
+        "children": "ignore"
+      }
+    ],
     "jsx-a11y/media-has-caption": "off",
     "jsx-a11y/label-has-for": "off",
-    "prettier/prettier": "off"
+    "prettier/prettier": 1
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

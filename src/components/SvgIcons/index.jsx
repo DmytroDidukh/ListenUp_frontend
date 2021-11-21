@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 const SvgIcons = ({ type, isRead }) => {
     const checkedIcon = (
-        <div className={'svg-wrapper'}>
+        <div className='svg-wrapper'>
             <svg
                 className={classNames('checked-svg-icon', { read: isRead })}
                 version='1.0'

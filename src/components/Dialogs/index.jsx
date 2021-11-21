@@ -18,8 +18,8 @@ const Dialogs = ({
     activeDialogId,
 }) => {
     return (
-        <div className={'chat__dialogs'}>
-            <div className={'dialogs__header'}>
+        <div className='chat__dialogs'>
+            <div className='dialogs__header'>
                 <ChatSettingsContainer />
                 <Input
                     className='dialogs__header__search-dialog'

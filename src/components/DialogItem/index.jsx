@@ -31,13 +31,13 @@ const DialogItem = ({
             </div>
             <div className='dialogs__item-info'>
                 <div className='dialogs__item-info-top'>
-                    <b className={'dialogs__item__contact-name'}>{user.fullName}</b>
-                    <Time className={''} date={created_at} />
+                    <b className='dialogs__item__contact-name'>{user.fullName}</b>
+                    <Time className='' date={created_at} />
                 </div>
                 <div className='dialogs__item-info-bottom'>
-                    <span className={'dialogs__item__last-message'}>{text}</span>
+                    <span className='dialogs__item__last-message'>{text}</span>
                     {!isMe ? (
-                        <SvgIcons type={'checked'} isRead={isRead && true} />
+                        <SvgIcons type='checked' isRead={isRead && true} />
                     ) : (
                         <Label className='dialogs__item__unread-counter' circular>
                             {unreadCount}

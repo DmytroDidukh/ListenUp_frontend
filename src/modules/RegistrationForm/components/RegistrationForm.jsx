@@ -34,24 +34,24 @@ const RegistrationForm = (props) => {
 
     return (
         <div>
-            <div className={'auth__top'}>
+            <div className='auth__top'>
                 <h2>Registration</h2>
                 <p>To start chatting you need to register first</p>
             </div>
-            <Block className={'auth__form'}>
+            <Block className='auth__form'>
                 {!validated ? (
                     <Form onSubmit={handleSubmit} className='registration-form'>
                         <Form.Item
-                            className={'form-input'}
+                            className='form-input'
                             validateStatus={onValidateField(email, errors, touched)}
                             help={onValidateHelp(email)}
                         >
                             <Input
-                                className={'form-input'}
+                                className='form-input'
                                 id={email}
                                 prefix={<MailOutlined />}
                                 placeholder='Email'
-                                size={'large'}
+                                size='large'
                                 value={values.email}
                                 onChange={handleChange}
                                 onBlur={handleBlur}
@@ -59,17 +59,17 @@ const RegistrationForm = (props) => {
                         </Form.Item>
 
                         <Form.Item
-                            className={'form-input'}
+                            className='form-input'
                             validateStatus={onValidateField(username, errors, touched)}
                             help={onValidateHelp(username)}
                         >
                             <Input
-                                className={'form-input'}
+                                className='form-input'
                                 id={username}
                                 prefix={<UserOutlined />}
                                 placeholder='Username'
                                 value={values.username}
-                                size={'large'}
+                                size='large'
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -80,13 +80,13 @@ const RegistrationForm = (props) => {
                             help={onValidateHelp(password)}
                         >
                             <Input.Password
-                                className={'form-input'}
+                                className='form-input'
                                 id={password}
                                 prefix={<LockOutlined />}
                                 type='password'
                                 placeholder='Password'
                                 value={values.password}
-                                size={'large'}
+                                size='large'
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -97,13 +97,13 @@ const RegistrationForm = (props) => {
                             help={onValidateHelp(confirmPass)}
                         >
                             <Input.Password
-                                className={'form-input'}
+                                className='form-input'
                                 id={confirmPass}
                                 prefix={<LockOutlined />}
                                 type='password'
                                 value={values.confirmPass}
                                 placeholder='Repeat password'
-                                size={'large'}
+                                size='large'
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                             />
@@ -115,17 +115,17 @@ const RegistrationForm = (props) => {
                                 type='primary'
                                 htmlType='submit'
                                 className='login-form-button'
-                                size={'large'}
+                                size='large'
                             >
                                 Register
                             </Button>
                         </Form.Item>
-                        <Link to={'login'} className='auth__registration'>
+                        <Link to='login' className='auth__registration'>
                             log in
                         </Link>
                     </Form>
                 ) : (
-                    <div className={'auth__top success-block'}>
+                    <div className='auth__top success-block'>
                         <InfoCircleOutlined style={{ fontSize: '40px', color: '#096dd9' }} />
                         <h3>Confirm your email address</h3>
                         <p>

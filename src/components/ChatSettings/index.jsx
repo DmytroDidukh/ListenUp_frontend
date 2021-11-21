@@ -11,7 +11,7 @@ const ChatSettings = ({ togglePopup, isPopupVisible }) => {
         <div className='dialogs__header__settings'>
             <Icon name='bars' onClick={togglePopup} />
             <div className={classNames('settings-popup', { active: isPopupVisible })}>
-                <div className={'settings-popup__user-info'}>
+                <div className='settings-popup__user-info'>
                     <Icon name='close' onClick={togglePopup} />
                     <Avatar username='Luke Skywalker' />
                     <span className='user-name'>Luke Skywalker</span>

@@ -34,7 +34,7 @@ const ActiveChatFooter = ({ emojiPopupVisible, toggleEmojiPopup }) => {
                 onChange={(e) => setMessageValue(e.target.value)}
                 placeholder='Write a message...'
             />
-            <span className={'emoji-block'}>
+            <span className='emoji-block'>
                 {emojiPopupVisible && <Picker set='facebook' onClick={setSmileToMessage} />}
                 <Button icon onClick={toggleEmojiPopup}>
                     <Icon name='smile outline' />

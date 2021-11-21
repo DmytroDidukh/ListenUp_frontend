@@ -7,9 +7,9 @@ import './Auth.scss';
 
 const Auth = () => {
     return (
-        <section className={'auth'}>
+        <section className='auth'>
             <Route exact path={['/', '/login']} component={LoginForm} />
-            <Route exact path={'/registration'} component={RegistrationForm} />
+            <Route exact path='/registration' component={RegistrationForm} />
         </section>
     );
 };

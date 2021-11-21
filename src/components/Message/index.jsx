@@ -46,14 +46,14 @@ const Message = ({
                             <span />
                         </div>
                     )}
-                    {isMe && !isTyping && <SvgIcons type={'checked'} isRead={isRead} />}
+                    {isMe && !isTyping && <SvgIcons type='checked' isRead={isRead} />}
                 </div>
                 {!!attachments.length && (
                     <div className='message__attachments'>
                         {attachments.map((item, i) => (
                             <img
                                 key={i}
-                                className={'message__attachments-item'}
+                                className='message__attachments-item'
                                 src={item.src}
                                 alt={item.id}
                             />

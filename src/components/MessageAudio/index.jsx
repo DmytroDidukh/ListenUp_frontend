@@ -61,7 +61,7 @@ const MessageAudio = ({ audioSrc }) => {
                     </button>
                 </div>
                 <div className='message__audio-svg-wave'>
-                    <SvgIcons type={'wave'} />
+                    <SvgIcons type='wave' />
                 </div>
                 <span className='message__audio-duration'>{convertCurrentTime(currentTime)}</span>
             </div>

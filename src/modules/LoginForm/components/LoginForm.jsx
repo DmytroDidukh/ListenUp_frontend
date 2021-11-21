@@ -8,28 +8,28 @@ import { Button, Block } from '@components';
 const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
     return (
         <div>
-            <div className={'auth__top'}>
+            <div className='auth__top'>
                 <h2>Welcome!</h2>
                 <p>Log in or get registration</p>
             </div>
-            <Block className={'auth__form'}>
+            <Block className='auth__form'>
                 <Form className='login-form'>
                     <Form.Item name='email'>
                         <Input
-                            className={'form-input'}
+                            className='form-input'
                             prefix={<UserOutlined />}
                             placeholder='Email'
-                            size={'large'}
+                            size='large'
                         />
                     </Form.Item>
 
                     <Form.Item name='password'>
                         <Input
-                            className={'form-input'}
+                            className='form-input'
                             prefix={<LockOutlined />}
                             type='password'
                             placeholder='Password'
-                            size={'large'}
+                            size='large'
                         />
                     </Form.Item>
 
@@ -39,12 +39,12 @@ const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
                             htmlType='submit'
                             onClick={handleSubmit}
                             className='login-form-button'
-                            size={'large'}
+                            size='large'
                         >
                             Log in
                         </Button>
                     </Form.Item>
-                    <Link to={'registration'} className='auth__registration'>
+                    <Link to='registration' className='auth__registration'>
                         registration
                     </Link>
                 </Form>
