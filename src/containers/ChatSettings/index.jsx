@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ChatSettings } from 'components';
+import { ChatSettings } from '@components';
 
 const ChatSettingsContainer = () => {
     const [isPopupVisible, setPopupVisible] = useState(false);

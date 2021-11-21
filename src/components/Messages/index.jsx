@@ -2,7 +2,8 @@ import React from 'react';
 import { Message as SemanticMessage, Loader } from 'semantic-ui-react';
 import { Empty } from 'antd';
 
-import { Message } from 'components';
+import { Message } from '@components';
+
 import './Messages.scss';
 
 const Messages = ({ messages, isLoading, blockRef }) => (

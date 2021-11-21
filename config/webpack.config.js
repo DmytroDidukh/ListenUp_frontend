@@ -223,14 +223,11 @@ module.exports = function (webpackEnv) {
                 }),
             ],
             // Automatically split vendor and commons
-            // https://twitter.com/wSokra/status/969633336732905474
-            // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
             splitChunks: {
                 chunks: 'all',
                 name: false,
             },
             // Keep the runtime chunk separated to enable long term caching
-            // https://twitter.com/wSokra/status/969679223278505985
             runtimeChunk: true,
         },
         resolve: {
@@ -254,8 +251,15 @@ module.exports = function (webpackEnv) {
             alias: {
                 // Support React Native Web
                 // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
-                'react-native': 'react-native-web',
                 styles: path.join(paths.appSrc, 'styles'),
+                '@components': path.resolve(__dirname, '../src/components/'),
+                '@pages': path.resolve(__dirname, '../src/pages/'),
+                '@modules': path.resolve(__dirname, '../src/modules/'),
+                '@containers': path.resolve(__dirname, '../src/containers/'),
+                '@utils': path.join(__dirname, '../src/utils/'),
+                '@store': path.resolve(__dirname, '../src/store/'),
+                '@core': path.resolve(__dirname, '../src/core/'),
+                '@const': path.resolve(__dirname, '../src/const/'),
             },
             plugins: [
                 // Adds support for installing with Plug'n'Play, leading to faster installs and adding

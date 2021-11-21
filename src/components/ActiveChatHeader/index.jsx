@@ -2,14 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
-import { Avatar, Time } from 'components';
+import { Avatar, Time } from '@components';
+import { dialogsSelectors } from '@store/selectors';
+
 import './ActiveChatHeader.scss';
 
 const ActiveChatHeader = () => {
-    const { dialogs, activeDialogId } = useSelector(({ dialogs }) => ({
-        dialogs: dialogs.items,
-        activeDialogId: dialogs.activeDialogId,
-    }));
+    const { dialogs, activeDialogId } = useSelector(dialogsSelectors.getDialogs);
 
     const activeUserName =
         activeDialogId && dialogs.find((dialog) => dialog._id === activeDialogId).user.fullName;

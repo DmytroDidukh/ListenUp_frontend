@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Button as BaseButton } from 'antd';
 
-import { BUTTON_SIZE } from '../../consts';
+import { BUTTON_SIZE } from '@const';
 
 import './Button.scss';
 

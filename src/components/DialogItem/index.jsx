@@ -2,7 +2,8 @@ import React from 'react';
 import { Label } from 'semantic-ui-react';
 import classNames from 'classnames';
 
-import { Time, SvgIcons, Avatar } from 'components';
+import { Time, SvgIcons, Avatar } from '@components';
+
 import './DialogItem.scss';
 
 const DialogItem = ({

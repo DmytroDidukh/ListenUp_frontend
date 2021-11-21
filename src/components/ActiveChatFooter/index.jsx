@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Icon, Input } from 'semantic-ui-react';
 import { Picker } from 'emoji-mart';
 import { UploadField } from '@navjobs/upload';
@@ -50,6 +51,16 @@ const ActiveChatFooter = ({ emojiPopupVisible, toggleEmojiPopup }) => {
             )}
         </section>
     );
+};
+
+ActiveChatFooter.propTypes = {
+    emojiPopupVisible: PropTypes.bool,
+    toggleEmojiPopup: PropTypes.func,
+};
+
+ActiveChatFooter.defaultProps = {
+    emojiPopupVisible: false,
+    toggleEmojiPopup: () => {},
 };
 
 export default ActiveChatFooter;

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import { ActiveChatFooter, ActiveChatHeader } from 'components';
-import { DialogsContainer, MessagesContainer } from 'containers';
+import { ActiveChatFooter, ActiveChatHeader } from '@components';
+import { DialogsContainer, MessagesContainer } from '@containers';
+
 import './Home.scss';
 
 const Home = () => {

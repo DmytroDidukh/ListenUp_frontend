@@ -1,15 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { messagesActions } from 'redux/actions';
-import { Messages } from 'components';
+import { messagesActions } from '@store/actions';
+import { messagesSelectors } from '@store/selectors';
+import { Messages } from '@components';
 
 const MessagesContainer = () => {
-    const { items, activeDialogId, isLoading } = useSelector(({ dialogs, messages }) => ({
-        items: messages.items,
-        isLoading: messages.isLoading,
-        activeDialogId: dialogs.activeDialogId,
-    }));
+    const { items, activeDialogId, isLoading } = useSelector(messagesSelectors.getMessages);
     const dispatch = useDispatch();
     const messagesRef = useRef(null);
 

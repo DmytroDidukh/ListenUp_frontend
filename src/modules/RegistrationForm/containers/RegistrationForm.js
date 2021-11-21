@@ -1,7 +1,7 @@
 import { withFormik } from 'formik';
 
 import RegistrationForm from '../components/RegistrationForm';
-import validateForm from 'utils/validate';
+import validateForm from '@utils/validate';
 
 export default withFormik({
     validate: (values) => {

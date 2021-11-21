@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Icon } from 'semantic-ui-react';
 
-import { Avatar } from 'components';
+import { Avatar } from '@components';
 
 import './ChatSettings.scss';
 

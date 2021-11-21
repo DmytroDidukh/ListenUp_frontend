@@ -3,8 +3,8 @@ import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-import { Button, Block } from 'components';
-import { onValidateField } from 'utils/helpers';
+import { Button, Block } from '@components';
+import { onValidateField } from '@utils/helpers';
 
 const RegistrationForm = (props) => {
     const [validated] = useState(false);

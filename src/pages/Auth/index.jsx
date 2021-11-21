@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import { LoginForm, RegistrationForm } from 'modules';
+import { LoginForm, RegistrationForm } from '@modules';
 
 import './Auth.scss';
 

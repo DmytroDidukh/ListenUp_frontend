@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { Time, SvgIcons, MessageAudio, Avatar } from 'components';
+import { Time, SvgIcons, MessageAudio, Avatar } from '@components';
+
 import './Message.scss';
 
 const Message = ({

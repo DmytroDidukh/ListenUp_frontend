@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { dialogsActions } from 'redux/actions';
-import { Dialogs } from 'components';
+import { dialogsActions } from '@store/actions';
+import { dialogsSelectors } from '@store/selectors';
+import { Dialogs } from '@components';
 
 const DialogsContainer = ({ userId }) => {
-    const { items, activeDialogId } = useSelector(({ dialogs }) => ({
-        items: dialogs.items,
-        activeDialogId: dialogs.activeDialogId,
-    }));
+    const { items, activeDialogId } = useSelector(dialogsSelectors.getDialogs);
     const dispatch = useDispatch();
 
     const [filteredDialogs, setFilteredDialogs] = useState(items);

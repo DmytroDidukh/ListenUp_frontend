@@ -3,8 +3,9 @@ import orderBy from 'lodash/orderBy';
 import { Input, Loader } from 'semantic-ui-react';
 import { Empty } from 'antd';
 
-import { DialogItem } from 'components';
-import { ChatSettingsContainer } from 'containers';
+import { DialogItem } from '@components';
+import { ChatSettingsContainer } from '@containers';
+
 import './Dialogs.scss';
 
 const Dialogs = ({

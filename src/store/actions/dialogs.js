@@ -1,4 +1,4 @@
-import { dialogsApi } from 'utils/api';
+import { dialogsApi } from '@utils/api';
 
 const actions = {
     setDialogs: (items) => ({

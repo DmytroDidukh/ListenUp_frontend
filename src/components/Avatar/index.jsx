@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { avatarGenerator } from 'utils/helpers';
+import { avatarGenerator } from '@utils/helpers';
+
 import './Avatar.scss';
 
 const Avatar = ({ avatar, username }) => {
