@@ -10,11 +10,9 @@ const MessagesContainer = () => {
     const dispatch = useDispatch();
     const messagesRef = useRef(null);
 
-    const { fetchMessages } = messagesActions;
-
     useEffect(() => {
-        activeDialogId && dispatch(fetchMessages(activeDialogId));
-    }, [activeDialogId, dispatch, fetchMessages]);
+        activeDialogId && dispatch(messagesActions.fetchMessages(activeDialogId));
+    }, [activeDialogId, dispatch]);
 
     useEffect(() => {
         messagesRef.current && messagesRef.current.scrollTo(0, 9999);

@@ -40,14 +40,16 @@ const RegistrationForm = (props) => {
             </div>
             <Block className={'auth__form'}>
                 {!validated ? (
-                    <Form onSubmit={handleSubmit} className='login-form'>
+                    <Form onSubmit={handleSubmit} className='registration-form'>
                         <Form.Item
+                            className={'form-input'}
                             validateStatus={onValidateField(email, errors, touched)}
                             help={onValidateHelp(email)}
                         >
                             <Input
+                                className={'form-input'}
                                 id={email}
-                                prefix={<MailOutlined className='site-form-item-icon' />}
+                                prefix={<MailOutlined />}
                                 placeholder='Email'
                                 size={'large'}
                                 value={values.email}
@@ -57,12 +59,14 @@ const RegistrationForm = (props) => {
                         </Form.Item>
 
                         <Form.Item
+                            className={'form-input'}
                             validateStatus={onValidateField(username, errors, touched)}
                             help={onValidateHelp(username)}
                         >
                             <Input
+                                className={'form-input'}
                                 id={username}
-                                prefix={<UserOutlined className='site-form-item-icon' />}
+                                prefix={<UserOutlined />}
                                 placeholder='Username'
                                 value={values.username}
                                 size={'large'}
@@ -76,8 +80,9 @@ const RegistrationForm = (props) => {
                             help={onValidateHelp(password)}
                         >
                             <Input.Password
+                                className={'form-input'}
                                 id={password}
-                                prefix={<LockOutlined className='site-form-item-icon' />}
+                                prefix={<LockOutlined />}
                                 type='password'
                                 placeholder='Password'
                                 value={values.password}
@@ -92,8 +97,9 @@ const RegistrationForm = (props) => {
                             help={onValidateHelp(confirmPass)}
                         >
                             <Input.Password
+                                className={'form-input'}
                                 id={confirmPass}
-                                prefix={<LockOutlined className='site-form-item-icon' />}
+                                prefix={<LockOutlined />}
                                 type='password'
                                 value={values.confirmPass}
                                 placeholder='Repeat password'

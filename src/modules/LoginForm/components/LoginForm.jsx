@@ -16,7 +16,8 @@ const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
                 <Form className='login-form'>
                     <Form.Item name='email'>
                         <Input
-                            prefix={<UserOutlined className='site-form-item-icon' />}
+                            className={'form-input'}
+                            prefix={<UserOutlined />}
                             placeholder='Email'
                             size={'large'}
                         />
@@ -24,7 +25,8 @@ const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
 
                     <Form.Item name='password'>
                         <Input
-                            prefix={<LockOutlined className='site-form-item-icon' />}
+                            className={'form-input'}
+                            prefix={<LockOutlined />}
                             type='password'
                             placeholder='Password'
                             size={'large'}
