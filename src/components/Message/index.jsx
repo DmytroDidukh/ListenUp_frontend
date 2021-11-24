@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import { Time, SvgIcons, MessageAudio, Avatar } from '@components';
 
@@ -64,6 +65,27 @@ const Message = ({
             </div>
         </div>
     );
+};
+
+Message.propTypes = {
+    message: PropTypes.shape({
+        user: PropTypes.string,
+        text: PropTypes.string,
+        created_at: PropTypes.string,
+    }).isRequired,
+    audio: PropTypes.string,
+    isMe: PropTypes.bool,
+    isRead: PropTypes.bool,
+    isTyping: PropTypes.bool,
+    attachments: PropTypes.string,
+};
+
+Message.defaultProps = {
+    audio: undefined,
+    isMe: undefined,
+    isRead: undefined,
+    isTyping: undefined,
+    attachments: [],
 };
 
 export default Message;

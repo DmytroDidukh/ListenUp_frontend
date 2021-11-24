@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import orderBy from 'lodash/orderBy';
 import { Input, Loader } from 'semantic-ui-react';
 import { Empty } from 'antd';
@@ -49,6 +50,49 @@ const Dialogs = ({
             </div>
         </div>
     );
+};
+
+Dialogs.propTypes = {
+    userId: PropTypes.string.isRequired,
+    onSearch: PropTypes.func.isRequired,
+    inputValue: PropTypes.func,
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string,
+            author: PropTypes.shape({
+                confirmed: PropTypes.bool,
+                last_seen: PropTypes.string,
+                _id: PropTypes.string,
+                email: PropTypes.string,
+                fullname: PropTypes.string,
+                password: PropTypes.string,
+                createdAt: PropTypes.string,
+                updatedAt: PropTypes.string,
+            }),
+            partner: {
+                confirmed: PropTypes.bool,
+                last_seen: PropTypes.string,
+                _id: PropTypes.string,
+                email: PropTypes.string,
+                fullname: PropTypes.string,
+                password: PropTypes.string,
+                createdAt: PropTypes.string,
+                updatedAt: PropTypes.string,
+            },
+            createdAt: PropTypes.string,
+            updatedAt: PropTypes.string,
+        }),
+    ),
+    isDialogsLoading: PropTypes.bool,
+    onSelectDialog: PropTypes.func.isRequired,
+    activeDialogId: PropTypes.string,
+};
+
+Dialogs.defaultProps = {
+    inputValue: '',
+    items: [],
+    isDialogsLoading: false,
+    activeDialogId: undefined,
 };
 
 export default Dialogs;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { differenceInHours, formatDistanceToNow, format } from 'date-fns';
 
 const Time = ({ className, date }) => {
@@ -16,6 +17,16 @@ const Time = ({ className, date }) => {
     };
 
     return <time className={`${className} date`}>{getMessageTime(new Date(date))}</time>;
+};
+
+Time.propTypes = {
+    className: PropTypes.string,
+    date: PropTypes.string,
+};
+
+Time.defaultProps = {
+    className: undefined,
+    date: new Date(),
 };
 
 export default Time;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Message as SemanticMessage, Loader } from 'semantic-ui-react';
 import { Empty } from 'antd';
 
@@ -28,6 +29,16 @@ const Messages = ({ messages, isLoading, blockRef }) => (
         </div>
     </section>
 );
+
+Messages.propTypes = {
+    messages: PropTypes.func,
+    isLoading: PropTypes.bool,
+};
+
+Messages.defaultProps = {
+    messages: [],
+    isLoading: false,
+};
 
 export default Messages;
 

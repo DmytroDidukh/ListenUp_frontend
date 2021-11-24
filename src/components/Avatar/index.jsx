@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import { avatarGenerator } from '@utils/helpers';
 
@@ -18,6 +19,16 @@ const Avatar = ({ avatar, username }) => {
             )}
         </div>
     );
+};
+
+Avatar.propTypes = {
+    avatar: PropTypes.string,
+    username: PropTypes.string,
+};
+
+Avatar.defaultProps = {
+    avatar: undefined,
+    username: '',
 };
 
 export default Avatar;

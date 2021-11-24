@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
@@ -51,6 +52,18 @@ const LoginForm = ({ isSubmitting, isValid, handleSubmit }) => {
             </Block>
         </div>
     );
+};
+
+LoginForm.propTypes = {
+    isSubmitting: PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    isValid: PropTypes.bool,
+};
+
+LoginForm.defaultProps = {
+    handleSubmit: () => {},
+    isSubmitting: false,
+    isValid: false,
 };
 
 export default LoginForm;

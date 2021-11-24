@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 
 import { SvgIcons } from '@components';
@@ -67,6 +68,14 @@ const MessageAudio = ({ audioSrc }) => {
             </div>
         </div>
     );
+};
+
+MessageAudio.propTypes = {
+    audioSrc: PropTypes.string,
+};
+
+MessageAudio.defaultProps = {
+    audioSrc: '',
 };
 
 export default MessageAudio;

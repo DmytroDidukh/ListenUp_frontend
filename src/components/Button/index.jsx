@@ -20,12 +20,12 @@ const Button = ({ size, className, ...rest }) => {
 
 Button.propTypes = {
     size: PropTypes.oneOf(Object.values(BUTTON_SIZE)),
-    classNames: PropTypes.string,
+    className: PropTypes.string,
 };
 
 Button.defaultProps = {
     size: 'medium',
-    classNames: undefined,
+    className: undefined,
 };
 
 export default Button;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Input } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
@@ -19,6 +20,8 @@ const RegistrationForm = (props) => {
         'success',
     ];
 
+    console.log(props);
+
     const {
         values,
         touched,
@@ -29,6 +32,8 @@ const RegistrationForm = (props) => {
         isSubmitting,
         isValid,
     } = props;
+
+    console.log(values);
 
     const onValidateHelp = (value) => (!touched[value] ? '' : errors[value]);
 
@@ -137,6 +142,14 @@ const RegistrationForm = (props) => {
             </Block>
         </div>
     );
+};
+
+RegistrationForm.propTypes = {
+    props: PropTypes.string,
+};
+
+RegistrationForm.defaultProps = {
+    props: {},
 };
 
 export default RegistrationForm;

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 
 import { Avatar } from '@components';
@@ -24,6 +25,16 @@ const ChatSettings = ({ togglePopup, isPopupVisible }) => {
             </div>
         </div>
     );
+};
+
+ChatSettings.propTypes = {
+    togglePopup: PropTypes.func,
+    isPopupVisible: PropTypes.bool,
+};
+
+ChatSettings.defaultProps = {
+    togglePopup: () => {},
+    isPopupVisible: false,
 };
 
 export default ChatSettings;

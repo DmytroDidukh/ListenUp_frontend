@@ -1,6 +1,7 @@
 import React from 'react';
 import { Label } from 'semantic-ui-react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import { Time, SvgIcons, Avatar } from '@components';
 
@@ -47,6 +48,32 @@ const DialogItem = ({
             </div>
         </div>
     );
+};
+
+DialogItem.propTypes = {
+    isMe: PropTypes.bool,
+    _id: PropTypes.string.isRequired,
+    user: PropTypes.shape({
+        _id: PropTypes.string,
+        online: PropTypes.bool,
+        fullName: PropTypes.string,
+    }).isRequired,
+    text: PropTypes.string,
+    isRead: PropTypes.bool,
+    created_at: PropTypes.string,
+    unreadCount: PropTypes.number,
+    onSelect: PropTypes.func,
+    activeDialogId: PropTypes.string,
+};
+
+DialogItem.defaultProps = {
+    isMe: undefined,
+    text: '',
+    isRead: undefined,
+    created_at: undefined,
+    unreadCount: 0,
+    onSelect: () => {},
+    activeDialogId: undefined,
 };
 
 export default DialogItem;
